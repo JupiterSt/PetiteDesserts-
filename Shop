@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Petite Desserts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f3ece7;
+    }
+    .header {
+      background-color: #6f1d1b;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+    .header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+    .shop-title {
+      text-align: center;
+      color: #6f1d1b;
+      font-size: 36px;
+      margin-top: 40px;
+    }
+    .product-section {
+      padding: 60px;
+      background-color: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .product-card {
+      background-color: #f9f4f0;
+      border: 1px solid #e0dcd8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 15px 0 10px;
+      font-size: 18px;
+      color: #6f1d1b;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #444;
+    }
+    @media (max-width: 1024px) {
+      .product-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .product-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <h2>Petite <span style="font-weight: lighter">Desserts</span></h2>
+    </div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="Shop.html">SHOP</a>
+      <a href="#">ABOUT</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+  <h1 class="shop-title">Shop All Desserts</h1>
+  <section class="product-section">
+    <div class="product-card">
+      <img src="/image/mazamorra.jpg" alt="Mazamorra Morada">
+      <h3>Mazamorra Morada</h3>
+      <p>Purple corn pudding with dried fruits and spices.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/picarones.jpg" alt="Picarones">
+      <h3>Picarones</h3>
+      <p>Sweet potato and squash donuts drizzled with syrup.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/suspiro.jpg" alt="Suspiro de Limeña">
+      <h3>Suspiro de Limeña</h3>
+      <p>Caramel custard topped with meringue.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/guarguero.jpg" alt="Guargüero">
+      <h3>Guargüero</h3>
+      <p>Fried pastry rolls filled with creamy manjar blanco.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/turron.jpg" alt="Turrón de Doña Pepa">
+      <h3>Turrón de Doña Pepa</h3>
+      <p>Layered anise cookie bars topped with honey and sprinkles.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/arroz.jpg" alt="Arroz con Leche">
+      <h3>Arroz con Leche</h3>
+      <p>Creamy rice pudding with cinnamon and cloves.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/crema.jpg" alt="Crema Volteada">
+      <h3>Crema Volteada</h3>
+      <p>Peruvian-style flan with a caramel glaze.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/lucuma.jpg" alt="Lucuma Ice Cream">
+      <h3>Lucuma Ice Cream</h3>
+      <p>Delicious ice cream made with Peru’s native lucuma fruit.</p>
+    </div>
+  </section>
+</body>
+</html>
