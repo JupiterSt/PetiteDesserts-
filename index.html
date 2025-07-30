@@ -28,12 +28,17 @@
       background-color: #6f1d1b;
       color: #fcefe1;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 80px 60px;
+      padding: 80px 20px;
+      text-align: center;
     }
-    .hero-text {
-      max-width: 600px;
+    .hero-image {
+      margin-bottom: 20px;
+    }
+    .hero-image img {
+      max-width: 300px;
+      border-radius: 10px;
     }
     .hero-text h1 {
       font-size: 42px;
@@ -43,11 +48,12 @@
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 30px;
+      max-width: 600px;
     }
     .hero-text button {
       padding: 10px 20px;
       font-size: 14px;
-      margin-right: 10px;
+      margin: 5px;
       border: none;
       cursor: pointer;
     }
@@ -59,10 +65,6 @@
       background-color: transparent;
       border: 1px solid #fff;
       color: #fff;
-    }
-    .hero-image img {
-      max-width: 400px;
-      border-radius: 10px;
     }
     .product-section {
       padding: 60px;
@@ -109,14 +111,14 @@
     </nav>
   </header>
   <section class="hero">
+    <div class="hero-image">
+      <img src="/image/Logo.png" alt="Petite Desserts Logo" onerror="this.onerror=null;this.src='/image/fallback.png';">
+    </div>
     <div class="hero-text">
       <h1>Peruvian Sweets & Traditions</h1>
       <p>Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
       <button class="shop-btn">SHOP NOW</button>
       <button class="learn-btn">LEARN MORE</button>
-    </div>
-    <div class="hero-image">
-      <img src="/image/Logo.png" alt="Petite Desserts Logo">
     </div>
   </section>
   <section class="product-section">
@@ -163,4 +165,3 @@
   </section>
 </body>
 </html>
-
