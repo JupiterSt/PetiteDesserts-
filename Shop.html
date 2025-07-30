@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Petite Desserts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f3ece7;
+    }
+    .header {
+      background-color: #6f1d1b;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+    .header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+    .shop-title {
+      text-align: center;
+      color: #6f1d1b;
+      font-size: 36px;
+      margin: 40px 0 20px;
+    }
+    .filter-section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filter-section select {
+      padding: 8px;
+      font-size: 14px;
+    }
+    .product-section {
+      padding: 40px 60px;
+      background-color: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .product-card {
+      background-color: #f9f4f0;
+      border: 1px solid #e0dcd8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 15px 0 5px;
+      font-size: 18px;
+      color: #6f1d1b;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .price {
+      font-weight: bold;
+      color: #bb9457;
+      margin-bottom: 10px;
+    }
+    .add-to-cart {
+      padding: 8px 16px;
+      background-color: #6f1d1b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .checkout-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .checkout-btn {
+      padding: 12px 30px;
+      background-color: #bb9457;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #cart-summary {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 10px;
+      color: #6f1d1b;
+    }
+    @media (max-width: 1024px) {
+      .product-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .product-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <h2>Petite <span style="font-weight: lighter">Desserts</span></h2>
+    </div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="Shop.html">SHOP</a>
+      <a href="#">ABOUT</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+  <h1 class="shop-title">Shop All Desserts</h1>
+  <div class="filter-section">
+    <label for="filter">Filter by type:</label>
+    <select id="filter" onchange="filterProducts()">
+      <option value="all">All</option>
+      <option value="pudding">Pudding</option>
+      <option value="donut">Donut</option>
+      <option value="custard">Custard</option>
+      <option value="icecream">Ice Cream</option>
+    </select>
+  </div>
+  <section class="product-section" id="product-list">
+    <!-- Product cards remain unchanged -->
+  </section>
+  <div class="checkout-section">
+    <div id="cart-summary">Cart: 0 items | Total: $0.00</div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </div>
+  <script>
+    let cart = [];
+
+    function filterProducts() {
+      const category = document.getElementById('filter').value;
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(card => {
+        const type = card.getAttribute('data-category');
+        card.style.display = (category === 'all' || category === type) ? 'block' : 'none';
+      });
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.product-card');
+        const title = card.querySelector('h3').textContent;
+        const price = parseFloat(card.querySelector('.price').textContent.replace('$', ''));
+        cart.push({ title, price });
+        updateCartSummary();
+      });
+    });
+
+    function updateCartSummary() {
+      const totalItems = cart.length;
+      const totalPrice = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+      document.getElementById('cart-summary').textContent = `Cart: ${totalItems} items | Total: $${totalPrice}`;
+    }
+
+    function checkout() {
+      alert("Thank you for your purchase!\n\nItems in Cart: " + cart.length);
+      cart = [];
+      updateCartSummary();
+    }
+  </script>
+</body>
+</html>
