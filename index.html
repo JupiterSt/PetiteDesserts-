@@ -64,6 +64,36 @@
       max-width: 400px;
       border-radius: 10px;
     }
+    .product-section {
+      padding: 60px;
+      background-color: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background-color: #f9f4f0;
+      border: 1px solid #e0dcd8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 15px 0 10px;
+      font-size: 18px;
+      color: #6f1d1b;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #444;
+    }
   </style>
 </head>
 <body>
@@ -81,23 +111,54 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Peruvian Sweets & Traditions</h1>
-      <p>Experience the warmth of Peru with every bite. Explore traditional desserts like:
-        <ul>
-          <li><strong>Mazamorra Morada</strong> – purple corn pudding</li>
-          <li><strong>Picarones</strong> – sweet potato donuts</li>
-          <li><strong>Suspiro de Limeña</strong> – caramel meringue delight</li>
-          <li><strong>Guargüero</strong> – pastry rolls with manjar blanco</li>
-          <li><strong>Turrón de Doña Pepa</strong> – anise and honey nougat</li>
-          <li><strong>Arroz con Leche</strong> – cinnamon rice pudding</li>
-          <li><strong>Crema Volteada</strong> – Peruvian-style flan</li>
-          <li><strong>Lucuma Ice Cream</strong> – made with Peru’s native fruit</li>
-        </ul>
-      </p>
+      <p>Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
       <button class="shop-btn">SHOP NOW</button>
       <button class="learn-btn">LEARN MORE</button>
     </div>
     <div class="hero-image">
       <img src="peruvian-desserts.webp" alt="Peruvian Desserts">
+    </div>
+  </section>
+  <section class="product-section">
+    <div class="product-card">
+      <img src="mazamorra.jpg" alt="Mazamorra Morada">
+      <h3>Mazamorra Morada</h3>
+      <p>Purple corn pudding with dried fruits and spices.</p>
+    </div>
+    <div class="product-card">
+      <img src="picarones.jpg" alt="Picarones">
+      <h3>Picarones</h3>
+      <p>Sweet potato and squash donuts drizzled with syrup.</p>
+    </div>
+    <div class="product-card">
+      <img src="suspiro.jpg" alt="Suspiro de Limeña">
+      <h3>Suspiro de Limeña</h3>
+      <p>Caramel custard topped with meringue.</p>
+    </div>
+    <div class="product-card">
+      <img src="guarguero.jpg" alt="Guargüero">
+      <h3>Guargüero</h3>
+      <p>Fried pastry rolls filled with creamy manjar blanco.</p>
+    </div>
+    <div class="product-card">
+      <img src="turron.jpg" alt="Turrón de Doña Pepa">
+      <h3>Turrón de Doña Pepa</h3>
+      <p>Layered anise cookie bars topped with honey and sprinkles.</p>
+    </div>
+    <div class="product-card">
+      <img src="arroz.jpg" alt="Arroz con Leche">
+      <h3>Arroz con Leche</h3>
+      <p>Creamy rice pudding with cinnamon and cloves.</p>
+    </div>
+    <div class="product-card">
+      <img src="crema.jpg" alt="Crema Volteada">
+      <h3>Crema Volteada</h3>
+      <p>Peruvian-style flan with a caramel glaze.</p>
+    </div>
+    <div class="product-card">
+      <img src="lucuma.jpg" alt="Lucuma Ice Cream">
+      <h3>Lucuma Ice Cream</h3>
+      <p>Delicious ice cream made with Peru’s native lucuma fruit.</p>
     </div>
   </section>
 </body>
