@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Feedback - Petite Desserts</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&display=swap">
   <style>
     body {
       margin: 0;
@@ -22,11 +23,20 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       color: #fff;
       font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #bb9457;
     }
     .language-toggle {
       background: transparent;
@@ -37,6 +47,11 @@
       font-size: 12px;
       border-radius: 5px;
       margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .language-toggle:hover {
+      background-color: #fff;
+      color: #6f1d1b;
     }
     .container {
       max-width: 700px;
@@ -66,7 +81,8 @@
     .stars {
       display: flex;
       justify-content: space-between;
-      max-width: 220px;
+      max-width: 240px;
+      margin: 0 auto;
     }
     .stars label {
       font-size: 24px;
@@ -80,11 +96,16 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #bb9457;
     }
     .footer {
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 14px;
+      margin-top: auto;
     }
     @media (max-width: 600px) {
       .header, .footer {
