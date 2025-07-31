@@ -23,6 +23,14 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .header h2 {
+      flex: 1;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -46,7 +54,6 @@
       cursor: pointer;
       font-size: 12px;
       border-radius: 5px;
-      margin-top: 10px;
       transition: background 0.3s ease;
     }
     .language-toggle:hover {
@@ -122,8 +129,10 @@
         flex-direction: column;
         text-align: center;
       }
-      nav {
-        margin-bottom: 10px;
+      .header-right {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
       }
     }
     @keyframes fadeIn {
@@ -135,14 +144,16 @@
 <body>
   <header class="header">
     <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="Shop.html">SHOP</a>
-      <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
-      <a href="Feedback.html">FEEDBACK</a>
-    </nav>
-    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="Shop.html">SHOP</a>
+        <a href="About.html">ABOUT</a>
+        <a href="Contact.html">CONTACT</a>
+        <a href="Feedback.html">FEEDBACK</a>
+      </nav>
+      <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+    </div>
   </header>
 
   <div class="container">
