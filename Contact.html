@@ -38,6 +38,11 @@
     nav a:hover {
       color: #bb9457;
     }
+    .right-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     .language-toggle {
       background: transparent;
       border: 1px solid #fff;
@@ -46,7 +51,6 @@
       cursor: pointer;
       font-size: 12px;
       border-radius: 5px;
-      margin-top: 10px;
       transition: background 0.3s ease;
     }
     .language-toggle:hover {
@@ -134,20 +138,25 @@
       nav {
         margin-bottom: 10px;
       }
+      .right-controls {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <header class="header">
     <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="Shop.html">SHOP</a>
-      <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
-      <a href="Feedback.html">FEEDBACK</a>
-    </nav>
-    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+    <div class="right-controls">
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="Shop.html">SHOP</a>
+        <a href="About.html">ABOUT</a>
+        <a href="Contact.html">CONTACT</a>
+        <a href="Feedback.html">FEEDBACK</a>
+      </nav>
+      <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+    </div>
   </header>
 
   <section class="contact-section">
@@ -160,8 +169,7 @@
     </form>
     <div class="info dual" data-en="We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at escribanoina7@gmail.com. Response time is usually within 24–48 hours."
          data-es="¡Nos encantaría saber de ti! Para pedidos, opiniones o consultas comerciales, por favor completa el formulario o escríbenos a escribanoina7@gmail.com. Respondemos en 24–48 horas.">
-      We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at <a href="mailto:escribanoina7@gmail.com">escribanoina7@gmail.com</a>.
-      <br />Response time is usually within 24–48 hours.
+      We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at <a href="mailto:escribanoina7@gmail.com">escribanoina7@gmail.com</a>.<br />Response time is usually within 24–48 hours.
     </div>
   </section>
 
