@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback - Petite Desserts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f3ece7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header, .footer {
+      background-color: #6f1d1b;
+      color: #fff;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+    .language-toggle {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      color: #6f1d1b;
+      margin-bottom: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, select, textarea {
+      padding: 10px;
+      font-size: 16px;
+      font-family: inherit;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .stars {
+      display: flex;
+      justify-content: space-between;
+      max-width: 220px;
+    }
+    .stars label {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #6f1d1b;
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      .header, .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="Shop.html">SHOP</a>
+      <a href="About.html">ABOUT</a>
+      <a href="Contact.html">CONTACT</a>
+      <a href="Feedback.html">FEEDBACK</a>
+    </nav>
+    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+  </header>
+
+  <div class="container">
+    <h1 class="dual" data-en="Leave Product Feedback" data-es="Deja tu Opinión">Leave Product Feedback</h1>
+    <form onsubmit="handleFeedback(event)">
+      <input class="dual" type="text" data-en="Your Name" data-es="Tu Nombre" placeholder="Your Name" required />
+      <input class="dual" type="email" data-en="Your Email" data-es="Tu Correo" placeholder="Your Email" required />
+
+      <select class="dual" data-en="Select a Dessert" data-es="Selecciona un Postre" required>
+        <option value="" disabled selected>Select a Dessert</option>
+        <option value="Alfajorcitos">Alfajorcitos</option>
+        <option value="Rice Pudding">Rice Pudding / Arroz con Leche</option>
+        <option value="Purple Corn Pudding">Mazamorra Morada</option>
+        <option value="Lemon Pie">Lemon Pie</option>
+        <option value="Chocotejas">Chocotejas</option>
+      </select>
+
+      <div class="stars">
+        <label><input type="radio" name="rating" value="1" required />⭐</label>
+        <label><input type="radio" name="rating" value="2" />⭐⭐</label>
+        <label><input type="radio" name="rating" value="3" />⭐⭐⭐</label>
+        <label><input type="radio" name="rating" value="4" />⭐⭐⭐⭐</label>
+        <label><input type="radio" name="rating" value="5" />⭐⭐⭐⭐⭐</label>
+      </div>
+
+      <textarea class="dual" data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." rows="5" placeholder="Write your feedback here..." required></textarea>
+      <button class="dual" type="submit" data-en="Submit Feedback" data-es="Enviar Opinión">Submit Feedback</button>
+    </form>
+  </div>
+
+  <footer class="footer">© 2025 Petite Desserts. All rights reserved.</footer>
+
+  <script>
+    let isSpanish = false;
+
+    function toggleLanguage() {
+      isSpanish = !isSpanish;
+
+      document.querySelectorAll(".dual").forEach(el => {
+        const text = isSpanish ? el.dataset.es : el.dataset.en;
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.placeholder = text;
+        } else if (el.tagName === "SELECT") {
+          const firstOption = el.querySelector("option[value='']");
+          if (firstOption) firstOption.textContent = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+
+      document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
+    }
+
+    function handleFeedback(event) {
+      event.preventDefault();
+      alert(isSpanish ? "¡Gracias por tu opinión!" : "Thank you for your feedback! 🍰");
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
