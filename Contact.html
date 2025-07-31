@@ -14,7 +14,8 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    .header, .footer {
+
+    header, footer {
       background-color: #6f1d1b;
       color: #fff;
       padding: 20px 60px;
@@ -23,11 +24,13 @@
       align-items: center;
       flex-wrap: wrap;
     }
+
     nav {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
     }
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
@@ -35,14 +38,11 @@
       font-size: 14px;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #bb9457;
     }
-    .right-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+
     .language-toggle {
       background: transparent;
       border: 1px solid #fff;
@@ -51,131 +51,139 @@
       cursor: pointer;
       font-size: 12px;
       border-radius: 5px;
+      margin-left: 15px;
       transition: background 0.3s ease;
     }
+
     .language-toggle:hover {
       background-color: #fff;
       color: #6f1d1b;
     }
+
     .contact-section {
-      max-width: 700px;
+      max-width: 600px;
       margin: 60px auto;
+      background: #fff6f0;
       padding: 30px;
-      background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .contact-section h2 {
       text-align: center;
-      animation: fadeIn 1s ease;
-    }
-    .contact-section h1 {
-      font-size: 32px;
+      font-size: 28px;
       color: #6f1d1b;
-      margin-bottom: 25px;
     }
-    .contact-section form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+
+    .contact-section p {
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 30px;
     }
-    .contact-section input,
-    .contact-section textarea {
-      padding: 12px;
+
+    .contact-form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #6f1d1b;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
       border-radius: 5px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-      font-size: 16px;
-      resize: vertical;
+      font-size: 14px;
+      box-sizing: border-box;
     }
-    .contact-section button {
+
+    .submit-btn {
+      margin-top: 25px;
       background-color: #6f1d1b;
-      color: #fff;
+      color: white;
       border: none;
-      padding: 12px;
-      font-size: 16px;
+      padding: 12px 20px;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      width: 100%;
+      font-size: 15px;
     }
-    .contact-section button:hover {
+
+    .submit-btn:hover {
       background-color: #bb9457;
     }
-    .contact-section .info {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #555;
-    }
-    .footer {
+
+    footer {
       text-align: center;
-      padding: 20px;
       font-size: 14px;
       margin-top: auto;
     }
-    #backToTop {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #6f1d1b;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      display: none;
-      transition: background 0.3s ease;
-    }
-    #backToTop:hover {
-      background: #bb9457;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
     @media (max-width: 600px) {
-      .header, .footer {
+      header, footer {
         flex-direction: column;
         text-align: center;
       }
       nav {
-        margin-bottom: 10px;
-      }
-      .right-controls {
         margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="header">
+  <header>
     <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    <div class="right-controls">
-      <nav>
-        <a href="index.html">HOME</a>
-        <a href="Shop.html">SHOP</a>
-        <a href="About.html">ABOUT</a>
-        <a href="Contact.html">CONTACT</a>
-        <a href="Feedback.html">FEEDBACK</a>
-      </nav>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="Shop.html">SHOP</a>
+      <a href="About.html">ABOUT</a>
+      <a href="Contact.html">CONTACT</a>
+      <a href="Feedback.html">FEEDBACK</a>
       <button class="language-toggle" onclick="toggleLanguage()">Español</button>
-    </div>
+    </nav>
   </header>
 
   <section class="contact-section">
-    <h1 class="dual" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</h1>
-    <form action="mailto:escribanoina7@gmail.com" method="POST" enctype="text/plain">
-      <input class="dual" type="text" name="Name" data-en="Your Name" data-es="Tu Nombre" placeholder="Your Name" required />
-      <input class="dual" type="email" name="Email" data-en="Your Email" data-es="Tu Correo" placeholder="Your Email" required />
-      <textarea class="dual" name="Message" rows="5" data-en="Your Message" data-es="Tu Mensaje" placeholder="Your Message" required></textarea>
-      <button class="dual" type="submit" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+    <h2 class="dual" data-en="Special Request Form" data-es="Formulario de Solicitud Especial">Special Request Form</h2>
+    <p class="dual" data-en="Tell us about your event and we'll make it sweet." data-es="Cuéntanos sobre tu evento y lo haremos dulce.">Tell us about your event and we'll make it sweet.</p>
+    <form action="#" method="POST" class="contact-form">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="company">Company (Optional)</label>
+      <input type="text" id="company" name="company">
+
+      <label for="phone">Phone *</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="eventType">Type of Request *</label>
+      <select id="eventType" name="eventType" required>
+        <option value="">-- Select an Option --</option>
+        <option value="wedding">Wedding</option>
+        <option value="birthday">Birthday</option>
+        <option value="business">Business Event</option>
+        <option value="party">Party</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="description">Tell us what you need *</label>
+      <textarea id="description" name="description" rows="5" required></textarea>
+
+      <button type="submit" class="submit-btn">Send Request</button>
     </form>
-    <div class="info dual" data-en="We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at escribanoina7@gmail.com. Response time is usually within 24–48 hours."
-         data-es="¡Nos encantaría saber de ti! Para pedidos, opiniones o consultas comerciales, por favor completa el formulario o escríbenos a escribanoina7@gmail.com. Respondemos en 24–48 horas.">
-      We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at <a href="mailto:escribanoina7@gmail.com">escribanoina7@gmail.com</a>.<br />Response time is usually within 24–48 hours.
-    </div>
   </section>
 
-  <footer class="footer">© 2025 Petite Desserts. All rights reserved.</footer>
-
-  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+  <footer>
+    &copy; 2025 Petite Desserts. All rights reserved.
+  </footer>
 
   <script>
     let isSpanish = false;
@@ -183,18 +191,10 @@
       isSpanish = !isSpanish;
       document.querySelectorAll(".dual").forEach(el => {
         const text = isSpanish ? el.dataset.es : el.dataset.en;
-        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-          el.placeholder = text;
-        } else {
-          el.textContent = text;
-        }
+        if (text) el.textContent = text;
       });
       document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
     }
-    window.onscroll = () => {
-      document.getElementById("backToTop").style.display =
-        window.scrollY > 300 ? "block" : "none";
-    };
   </script>
 </body>
 </html>
