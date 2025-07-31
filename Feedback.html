@@ -23,6 +23,10 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .title-link {
+      text-decoration: none;
+      color: inherit;
+    }
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -79,29 +83,15 @@
       border-radius: 5px;
     }
 
-    /* Updated stars: left to right fill */
-    .stars {
+    /* New rating selector */
+    .rating-group {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 5px;
-      direction: ltr;
+      gap: 10px;
     }
-    .stars input {
-      display: none;
-    }
-    .stars label {
-      font-size: 30px;
-      color: #ccc;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .stars input:checked + label,
-    .stars input:checked + label ~ label {
-      color: #f5b301;
-    }
-    .stars label:hover,
-    .stars label:hover ~ label {
-      color: #f5b301;
+    .rating-group label {
+      font-weight: bold;
     }
 
     button {
@@ -134,7 +124,9 @@
 </head>
 <body>
   <header class="header">
-    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    <a href="index.html" class="title-link">
+      <h2 style="margin: 0;">Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    </a>
     <nav>
       <a href="index.html">HOME</a>
       <a href="About.html">ABOUT</a>
@@ -159,13 +151,13 @@
         <option value="Chocotejas">Chocotejas</option>
       </select>
 
-      <!-- LEFT TO RIGHT STARS -->
-      <div class="stars">
-        <label for="star1">★</label><input type="radio" name="rating" id="star1" value="1">
-        <label for="star2">★</label><input type="radio" name="rating" id="star2" value="2">
-        <label for="star3">★</label><input type="radio" name="rating" id="star3" value="3">
-        <label for="star4">★</label><input type="radio" name="rating" id="star4" value="4">
-        <label for="star5">★</label><input type="radio" name="rating" id="star5" value="5">
+      <!-- NEW NUMBER RATING -->
+      <div class="rating-group">
+        <label for="rating" class="dual" data-en="Rating" data-es="Puntuación">Rating</label>
+        <select id="rating" name="rating" required>
+          <option value="" disabled selected>Select (1 to 10)</option>
+          ${[...Array(10)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+        </select>
       </div>
 
       <textarea class="dual" rows="5" placeholder="Write your feedback here..." data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." required></textarea>
