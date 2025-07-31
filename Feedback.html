@@ -83,15 +83,21 @@
       border-radius: 5px;
     }
 
-    /* New rating selector */
-    .rating-group {
+    .emoji-rating {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
+      font-size: 40px;
     }
-    .rating-group label {
-      font-weight: bold;
+    .emoji-rating input {
+      display: none;
+    }
+    .emoji-rating label {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .emoji-rating input:checked + label {
+      transform: scale(1.3);
     }
 
     button {
@@ -151,13 +157,16 @@
         <option value="Chocotejas">Chocotejas</option>
       </select>
 
-      <!-- NEW NUMBER RATING -->
-      <div class="rating-group">
-        <label for="rating" class="dual" data-en="Rating" data-es="Puntuación">Rating</label>
-        <select id="rating" name="rating" required>
-          <option value="" disabled selected>Select (1 to 10)</option>
-          ${[...Array(10)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
-        </select>
+      <!-- EMOJI RATING -->
+      <div class="emoji-rating">
+        <input type="radio" name="emoji-rating" id="sad" value="sad" required>
+        <label for="sad" title="Sad Face">😞</label>
+
+        <input type="radio" name="emoji-rating" id="neutral" value="neutral">
+        <label for="neutral" title="Neutral Face">😐</label>
+
+        <input type="radio" name="emoji-rating" id="happy" value="happy">
+        <label for="happy" title="Happy Face">😊</label>
       </div>
 
       <textarea class="dual" rows="5" placeholder="Write your feedback here..." data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." required></textarea>
