@@ -20,12 +20,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       margin: 0 15px;
       text-decoration: none;
       color: #fff;
       font-size: 14px;
+    }
+    .language-toggle {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-top: 10px;
     }
     .shop-title {
       text-align: center;
@@ -89,6 +100,9 @@
         flex-direction: column;
         text-align: center;
       }
+      nav {
+        margin-bottom: 10px;
+      }
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -105,21 +119,23 @@
       <a href="About.html">ABOUT</a>
       <a href="Contact.html">CONTACT</a>
     </nav>
+    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
   </header>
 
-  <h1 class="shop-title">Shop All Desserts</h1>
+  <h1 class="shop-title dual" data-en="Shop All Desserts" data-es="Todos los Postres">Shop All Desserts</h1>
+
   <section class="product-section">
     <div class="product-card">
       <img src="images/alfajores.jpg" alt="Alfajores">
-      <h3>Alfajorcitos</h3>
-      <p class="price">$2.00</p>
+      <h3 class="dual" data-en="Alfajorcitos" data-es="Mini Alfajores">Alfajorcitos</h3>
+      <p class="price dual" data-en="$2.00" data-es="S/. 7.40">$2.00</p>
     </div>
     <div class="product-card">
       <img src="images/arroz.jpg" alt="Arroz con Leche">
-      <h3>Rice Pudding</h3>
-      <p class="price">$3.50</p>
+      <h3 class="dual" data-en="Rice Pudding" data-es="Arroz con Leche">Rice Pudding</h3>
+      <p class="price dual" data-en="$3.50" data-es="S/. 12.90">$3.50</p>
     </div>
-    <!-- Add more products as needed -->
+    <!-- Add more bilingual product cards here -->
   </section>
 
   <footer class="footer">© 2025 Petite Desserts. All rights reserved.</footer>
@@ -127,6 +143,19 @@
   <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
   <script>
+    let isSpanish = false;
+
+    function toggleLanguage() {
+      isSpanish = !isSpanish;
+
+      document.querySelectorAll('.dual').forEach(el => {
+        const text = isSpanish ? el.dataset.es : el.dataset.en;
+        el.textContent = text;
+      });
+
+      document.querySelector('.language-toggle').textContent = isSpanish ? "English" : "Español";
+    }
+
     window.onscroll = () => {
       document.getElementById("backToTop").style.display =
         window.scrollY > 300 ? "block" : "none";
