@@ -23,6 +23,12 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -46,7 +52,6 @@
       cursor: pointer;
       font-size: 12px;
       border-radius: 5px;
-      margin-left: 15px;
       transition: background 0.3s ease;
     }
     .language-toggle:hover {
@@ -109,8 +114,10 @@
         flex-direction: column;
         text-align: center;
       }
-      nav {
-        margin-bottom: 10px;
+      .right-section {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
       }
     }
   </style>
@@ -118,20 +125,28 @@
 <body>
   <header class="header">
     <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="Shop.html">SHOP</a>
-      <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
-      <a href="Feedback.html">FEEDBACK</a>
+    <div class="right-section">
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="Shop.html">SHOP</a>
+        <a href="About.html">ABOUT</a>
+        <a href="Contact.html">CONTACT</a>
+        <a href="Feedback.html">FEEDBACK</a>
+      </nav>
       <button class="language-toggle" onclick="toggleLanguage()">Español</button>
-    </nav>
+    </div>
   </header>
 
   <section class="about-section">
     <h1 class="dual" data-en="Our Story" data-es="Nuestra Historia">Our Story</h1>
-    <p class="dual" data-en="Petite Desserts began with a dream to share Peru’s sweetest traditions. Founded by a passionate baker from Lima, our brand is built on the rich heritage of homemade desserts passed down through generations. Each dessert we offer—whether it's a delicate alfajorcito, a comforting arroz con leche, or a vibrant mazamorra morada—is crafted with love and authenticity." data-es="Petite Desserts comenzó con un sueño de compartir las más dulces tradiciones del Perú. Fundada por una pastelera apasionada de Lima, nuestra marca se basa en la rica herencia de postres caseros transmitidos por generaciones. Cada postre que ofrecemos—ya sea un delicado alfajorcito, un reconfortante arroz con leche o una vibrante mazamorra morada—está hecho con amor y autenticidad."></p>
-    <p class="dual" data-en="Our mission is to bring a taste of Peru to every table. From our colorful jars to our catered trays, we offer artisanal treats for birthdays, weddings, and everyday indulgence. Whether you’re placing a large event order or grabbing a sweet for yourself, we promise warmth, quality, and joy in every bite." data-es="Nuestra misión es llevar un pedacito del Perú a cada mesa. Desde nuestros frascos coloridos hasta nuestras bandejas para eventos, ofrecemos delicias artesanales para cumpleaños, bodas y antojos cotidianos. Ya sea que hagas un pedido grande o compres un postre para ti, te prometemos calidez, calidad y alegría en cada bocado."></p>
+    <p class="dual" data-en="Petite Desserts began with a dream to share Peru’s sweetest traditions. Founded by a passionate baker from Lima, our brand is built on the rich heritage of homemade desserts passed down through generations. Each dessert we offer—whether it's a delicate alfajorcito, a comforting arroz con leche, or a vibrant mazamorra morada—is crafted with love and authenticity." 
+       data-es="Petite Desserts comenzó con un sueño de compartir las más dulces tradiciones del Perú. Fundada por una pastelera apasionada de Lima, nuestra marca se basa en la rica herencia de postres caseros transmitidos por generaciones. Cada postre que ofrecemos—ya sea un delicado alfajorcito, un reconfortante arroz con leche o una vibrante mazamorra morada—está hecho con amor y autenticidad.">
+      Petite Desserts began with a dream to share Peru’s sweetest traditions...
+    </p>
+    <p class="dual" data-en="Our mission is to bring a taste of Peru to every table. From our colorful jars to our catered trays, we offer artisanal treats for birthdays, weddings, and everyday indulgence. Whether you’re placing a large event order or grabbing a sweet for yourself, we promise warmth, quality, and joy in every bite." 
+       data-es="Nuestra misión es llevar un pedacito del Perú a cada mesa. Desde nuestros frascos coloridos hasta nuestras bandejas para eventos, ofrecemos delicias artesanales para cumpleaños, bodas y antojos cotidianos. Ya sea que hagas un pedido grande o compres un postre para ti, te prometemos calidez, calidad y alegría en cada bocado.">
+      Our mission is to bring a taste of Peru to every table...
+    </p>
     <img src="images/about-desserts.jpg" alt="Traditional Peruvian Desserts">
   </section>
 
@@ -143,12 +158,19 @@
     let isSpanish = false;
     function toggleLanguage() {
       isSpanish = !isSpanish;
+
       document.querySelectorAll(".dual").forEach(el => {
         const text = isSpanish ? el.dataset.es : el.dataset.en;
-        el.textContent = text;
+        if (el.tagName === "P" || el.tagName === "H1" || el.tagName === "DIV") {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
       });
+
       document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
     }
+
     window.onscroll = () => {
       document.getElementById("backToTop").style.display =
         window.scrollY > 300 ? "block" : "none";
