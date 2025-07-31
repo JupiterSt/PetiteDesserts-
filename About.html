@@ -14,6 +14,7 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
     .header, .footer {
       background-color: #6f1d1b;
       color: #fff;
@@ -23,17 +24,31 @@
       align-items: center;
       flex-wrap: wrap;
     }
+
+    .title-link {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .title-link:hover {
+      color: #f2c57c;
+      transform: scale(1.05);
+    }
+
     .right-section {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     nav {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
     }
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
@@ -41,9 +56,11 @@
       font-size: 14px;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #bb9457;
     }
+
     .language-toggle {
       background: transparent;
       border: 1px solid #fff;
@@ -54,10 +71,12 @@
       border-radius: 5px;
       transition: background 0.3s ease;
     }
+
     .language-toggle:hover {
       background-color: #fff;
       color: #6f1d1b;
     }
+
     .about-section {
       text-align: center;
       padding: 80px 20px;
@@ -65,17 +84,20 @@
       margin: 0 auto;
       animation: fadeIn 1s ease;
     }
+
     .about-section h1 {
       color: #6f1d1b;
       font-size: 40px;
       margin-bottom: 25px;
     }
+
     .about-section p {
       font-size: 18px;
       color: #333;
       line-height: 1.8;
       text-align: justify;
     }
+
     .about-section img {
       max-width: 100%;
       height: auto;
@@ -83,12 +105,14 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
       margin-top: auto;
     }
+
     #backToTop {
       position: fixed;
       bottom: 25px;
@@ -102,13 +126,16 @@
       display: none;
       transition: background 0.3s ease;
     }
+
     #backToTop:hover {
       background: #bb9457;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @media (max-width: 600px) {
       .header, .footer {
         flex-direction: column;
@@ -124,7 +151,9 @@
 </head>
 <body>
   <header class="header">
-    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    <a href="index.html" class="title-link">
+      <h2 style="margin: 0;">Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    </a>
     <div class="right-section">
       <nav>
         <a href="index.html">HOME</a>
@@ -184,3 +213,4 @@
   </script>
 </body>
 </html>
+
