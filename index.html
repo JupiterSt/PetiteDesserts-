@@ -24,6 +24,16 @@
       color: #fff;
       font-size: 14px;
     }
+    .language-toggle {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-left: 15px;
+    }
     .hero {
       background-color: #6f1d1b;
       color: #fcefe1;
@@ -57,21 +67,24 @@
       margin-bottom: 30px;
       max-width: 600px;
     }
-    .hero-text button {
+    .hero-text a.shop-btn {
       padding: 10px 20px;
       font-size: 14px;
       margin: 5px;
-      border: none;
-      cursor: pointer;
-    }
-    .shop-btn {
+      text-decoration: none;
       background-color: #bb9457;
       color: #fff;
+      border-radius: 5px;
     }
-    .learn-btn {
+    .hero-text button.learn-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      margin: 5px;
       background-color: transparent;
       border: 1px solid #fff;
       color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
     }
     .product-section {
       padding: 60px;
@@ -93,6 +106,9 @@
       height: 180px;
       object-fit: cover;
       border-radius: 8px;
+    }
+    .product-card h3, .product-card p {
+      transition: all 0.3s ease;
     }
     .product-card h3 {
       margin: 15px 0 10px;
@@ -125,60 +141,79 @@
       <a href="Shop.html">SHOP</a>
       <a href="#">ABOUT</a>
       <a href="#">CONTACT</a>
+      <button class="language-toggle" onclick="toggleLanguage()">Español</button>
     </nav>
   </header>
+
   <section class="hero">
     <div class="hero-image">
       <img src="/images/Logo.png" alt="Petite Desserts Logo">
     </div>
     <div class="hero-text">
-      <h1>Peruvian Sweets & Traditions</h1>
-      <p>Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
-      <button class="shop-btn">SHOP NOW</button>
+      <h1 id="hero-title">Peruvian Sweets & Traditions</h1>
+      <p id="hero-sub">Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
+      <a href="Shop.html" class="shop-btn">SHOP NOW</a>
       <button class="learn-btn">LEARN MORE</button>
     </div>
   </section>
+
   <section class="product-section">
     <div class="product-card">
-      <img src="/image/mazamorra.jpg" alt="Mazamorra Morada">
-      <h3>Mazamorra Morada</h3>
-      <p>Purple corn pudding with dried fruits and spices.</p>
+      <img src="/image/catering.jpg" alt="Catering">
+      <h3 class="dual" data-en="Catering" data-es="Servicio de Catering">Catering</h3>
+      <p class="dual" data-en="Delight your guests with a curated menu of Peruvian desserts." data-es="Sorprende a tus invitados con un menú selecto de postres peruanos.">Delight your guests with a curated menu of Peruvian desserts.</p>
     </div>
     <div class="product-card">
-      <img src="/image/picarones.jpg" alt="Picarones">
-      <h3>Picarones</h3>
-      <p>Sweet potato and squash donuts drizzled with syrup.</p>
+      <img src="/image/jars.jpg" alt="Dessert Jars">
+      <h3 class="dual" data-en="Dessert Jars" data-es="Postres en Frascos">Dessert Jars</h3>
+      <p class="dual" data-en="Layered, portable treats perfect for events." data-es="Postres en capas y portátiles, ideales para eventos.">Layered, portable treats perfect for events.</p>
     </div>
     <div class="product-card">
-      <img src="/image/suspiro.jpg" alt="Suspiro de Limeña">
-      <h3>Suspiro de Limeña</h3>
-      <p>Caramel custard topped with meringue.</p>
-    </div>
-    <div class="product-card">
-      <img src="/image/guarguero.jpg" alt="Guargüero">
-      <h3>Guargüero</h3>
-      <p>Fried pastry rolls filled with creamy manjar blanco.</p>
-    </div>
-    <div class="product-card">
-      <img src="/image/turron.jpg" alt="Turrón de Doña Pepa">
-      <h3>Turrón de Doña Pepa</h3>
-      <p>Layered anise cookie bars topped with honey and sprinkles.</p>
+      <img src="/image/alfajores.jpg" alt="Alfajorcitos">
+      <h3 class="dual" data-en="Alfajorcitos" data-es="Mini Alfajores">Alfajorcitos</h3>
+      <p class="dual" data-en="Buttery cookies filled with manjar blanco." data-es="Galletas suaves rellenas de manjar blanco.">Buttery cookies filled with manjar blanco.</p>
     </div>
     <div class="product-card">
       <img src="/image/arroz.jpg" alt="Arroz con Leche">
-      <h3>Arroz con Leche</h3>
-      <p>Creamy rice pudding with cinnamon and cloves.</p>
+      <h3 class="dual" data-en="Rice Pudding" data-es="Arroz con Leche">Rice Pudding</h3>
+      <p class="dual" data-en="Sweet rice cooked with cinnamon and milk." data-es="Arroz dulce con canela y leche.">Sweet rice cooked with cinnamon and milk.</p>
     </div>
     <div class="product-card">
-      <img src="/image/crema.jpg" alt="Crema Volteada">
-      <h3>Crema Volteada</h3>
-      <p>Peruvian-style flan with a caramel glaze.</p>
+      <img src="/image/mazamorra.jpg" alt="Mazamorra Morada">
+      <h3 class="dual" data-en="Purple Corn Pudding" data-es="Mazamorra Morada">Purple Corn Pudding</h3>
+      <p class="dual" data-en="Traditional pudding made with purple corn." data-es="Pudin tradicional hecho con maíz morado.">Traditional pudding made with purple corn.</p>
     </div>
     <div class="product-card">
-      <img src="/image/lucuma.jpg" alt="Lucuma Ice Cream">
-      <h3>Lucuma Ice Cream</h3>
-      <p>Delicious ice cream made with Peru’s native lucuma fruit.</p>
+      <img src="/image/lemonpie.jpg" alt="Pie de Limón">
+      <h3 class="dual" data-en="Lemon Pie" data-es="Pie de Limón">Lemon Pie</h3>
+      <p class="dual" data-en="Creamy lemon filling with a buttery crust." data-es="Relleno cremoso de limón con base de galleta.">Creamy lemon filling with a buttery crust.</p>
+    </div>
+    <div class="product-card">
+      <img src="/image/chocotejas.jpg" alt="Chocotejas">
+      <h3 class="dual" data-en="Chocotejas" data-es="Dulces Peruanos de Chocolate">Chocotejas</h3>
+      <p class="dual" data-en="Chocolate-covered sweets with manjar and fruit." data-es="Dulces bañados en chocolate rellenos de manjar y fruta.">Chocolate-covered sweets with manjar and fruit.</p>
     </div>
   </section>
+
+  <script>
+    let isSpanish = false;
+    function toggleLanguage() {
+      isSpanish = !isSpanish;
+      document.querySelectorAll(".dual").forEach(el => {
+        const text = isSpanish ? el.dataset.es : el.dataset.en;
+        el.textContent = text;
+      });
+
+      document.getElementById("hero-title").textContent = isSpanish
+        ? "Dulces y Tradiciones Peruanas"
+        : "Peruvian Sweets & Traditions";
+        
+      document.getElementById("hero-sub").textContent = isSpanish
+        ? "Disfruta la calidez del Perú en cada bocado. Explora nuestros postres tradicionales."
+        : "Experience the warmth of Peru with every bite. Explore traditional desserts below.";
+
+      document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
+    }
+  </script>
 </body>
 </html>
