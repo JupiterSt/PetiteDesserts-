@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop - Petite Desserts</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&display=swap">
   <style>
     body {
       margin: 0;
@@ -22,11 +23,20 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       color: #fff;
       font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #bb9457;
     }
     .language-toggle {
       background: transparent;
@@ -37,6 +47,11 @@
       font-size: 12px;
       border-radius: 5px;
       margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .language-toggle:hover {
+      background-color: #fff;
+      color: #6f1d1b;
     }
     .shop-title {
       text-align: center;
@@ -45,9 +60,8 @@
       margin: 40px 0 20px;
     }
     .product-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 30px;
       padding: 40px 20px;
       max-width: 1200px;
@@ -58,7 +72,6 @@
       border: 1px solid #e0dcd8;
       border-radius: 10px;
       padding: 20px;
-      width: 260px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       animation: fadeIn 1s ease;
@@ -80,7 +93,7 @@
     }
     .footer {
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 14px;
     }
     #backToTop {
@@ -94,6 +107,10 @@
       border-radius: 50px;
       cursor: pointer;
       display: none;
+      transition: background 0.3s ease;
+    }
+    #backToTop:hover {
+      background: #bb9457;
     }
     @media (max-width: 600px) {
       .header, .footer {
