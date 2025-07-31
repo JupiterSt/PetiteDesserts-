@@ -150,11 +150,48 @@
       font-size: 14px;
       color: #444;
     }
+
+    .order-form {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #f9f4f0;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #e0dcd8;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .order-form h2 {
+      text-align: center;
+      color: #6f1d1b;
+      margin-bottom: 20px;
+    }
+    .order-form input, .order-form select, .order-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Georgia', serif;
+    }
+    .order-form button {
+      background-color: #6f1d1b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .order-form button:hover {
+      background-color: #bb9457;
+    }
+
     footer {
       text-align: center;
       font-size: 14px;
       margin-top: auto;
     }
+
     #backToTop {
       position: fixed;
       bottom: 25px;
@@ -171,64 +208,22 @@
       background-color: #bb9457;
     }
 
-    /* ✅ MOBILE OPTIMIZATION */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       header, footer {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-        padding: 20px;
+        padding: 15px 20px;
       }
-
       nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
         margin-top: 10px;
+        flex-direction: column;
+        gap: 5px;
       }
-
-      nav a {
-        margin: 5px 0;
-        font-size: 16px;
-      }
-
-      .hero {
-        padding: 50px 20px;
-      }
-
       .hero h1 {
         font-size: 28px;
       }
-
       .hero p {
         font-size: 14px;
-      }
-
-      .shop-btn {
-        padding: 12px 24px;
-        font-size: 15px;
-      }
-
-      .product-section {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        padding: 40px 10px;
-        gap: 20px;
-      }
-
-      .product-card h3 {
-        font-size: 16px;
-      }
-
-      .product-card p {
-        font-size: 13px;
-      }
-
-      .product-card img {
-        height: 140px;
-      }
-
-      .language-toggle {
-        margin-top: 10px;
       }
     }
   </style>
@@ -259,7 +254,60 @@
       <h3 class="dual" data-en="Alfajorcitos" data-es="Alfajorcitos">Alfajorcitos</h3>
       <p class="dual" data-en="Buttery shortbread cookies filled with dulce de leche." data-es="Galletas de mantequilla rellenas con manjar blanco.">Buttery shortbread cookies filled with dulce de leche.</p>
     </div>
-    <!-- Add all other product cards as needed -->
+
+    <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/flan.png" alt="Flan">
+      <h3 class="dual" data-en="Peruvian Flan" data-es="Flan Peruano">Peruvian Flan</h3>
+      <p class="dual" data-en="Silky caramel flan with a Peruvian twist." data-es="Flan de caramelo con un toque peruano.">Silky caramel flan with a Peruvian twist.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/arrozconleche.png" alt="Arroz con Leche">
+      <h3 class="dual" data-en="Arroz con Leche" data-es="Arroz con Leche">Arroz con Leche</h3>
+      <p class="dual" data-en="Creamy rice pudding with cinnamon." data-es="Arroz con leche cremoso con canela.">Creamy rice pudding with cinnamon.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/mazamorra.png" alt="Mazamorra Morada">
+      <h3 class="dual" data-en="Mazamorra Morada" data-es="Mazamorra Morada">Mazamorra Morada</h3>
+      <p class="dual" data-en="Purple corn pudding with fruit and spice." data-es="Postre de maíz morado con frutas y especias.">Purple corn pudding with fruit and spice.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/chocotejas.png" alt="Chocotejas">
+      <h3 class="dual" data-en="Chocotejas" data-es="Chocotejas">Chocotejas</h3>
+      <p class="dual" data-en="Chocolate candies filled with sweet manjar blanco." data-es="Dulces de chocolate rellenos de manjar blanco.">Chocolate candies filled with sweet manjar blanco.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/pie.png" alt="Pie de Limón">
+      <h3 class="dual" data-en="Pie de Limón" data-es="Pie de Limón">Pie de Limón</h3>
+      <p class="dual" data-en="Tart lemon pie with creamy topping." data-es="Pie de limón con cobertura cremosa.">Tart lemon pie with creamy topping.</p>
+    </div>
+  </section>
+
+  <section class="order-form">
+    <h2>Request an Order</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <select name="dessert">
+        <option value="">Select Dessert</option>
+        <option value="alfajorcitos">Alfajorcitos</option>
+        <option value="flan">Peruvian Flan</option>
+        <option value="arroz">Arroz con Leche</option>
+        <option value="mazamorra">Mazamorra Morada</option>
+        <option value="chocotejas">Chocotejas</option>
+        <option value="pie">Pie de Limón</option>
+      </select>
+      <textarea name="notes" rows="4" placeholder="Any special requests?"></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
   </section>
 
   <footer>
