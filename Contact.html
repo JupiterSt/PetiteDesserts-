@@ -38,6 +38,21 @@
     nav a:hover {
       color: #bb9457;
     }
+    .language-toggle {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .language-toggle:hover {
+      background-color: #fff;
+      color: #6f1d1b;
+    }
     .contact-section {
       max-width: 700px;
       margin: 60px auto;
@@ -132,19 +147,21 @@
       <a href="Contact.html">CONTACT</a>
       <a href="Feedback.html">FEEDBACK</a>
     </nav>
+    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
   </header>
 
   <section class="contact-section">
-    <h1>Get in Touch</h1>
+    <h1 class="dual" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</h1>
     <form action="mailto:escribanoina7@gmail.com" method="POST" enctype="text/plain">
-      <input type="text" name="Name" placeholder="Your Name" required />
-      <input type="email" name="Email" placeholder="Your Email" required />
-      <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input class="dual" type="text" name="Name" data-en="Your Name" data-es="Tu Nombre" placeholder="Your Name" required />
+      <input class="dual" type="email" name="Email" data-en="Your Email" data-es="Tu Correo" placeholder="Your Email" required />
+      <textarea class="dual" name="Message" rows="5" data-en="Your Message" data-es="Tu Mensaje" placeholder="Your Message" required></textarea>
+      <button class="dual" type="submit" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
     </form>
-    <div class="info">
-      <p>We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at <a href="mailto:escribanoina7@gmail.com">escribanoina7@gmail.com</a>.</p>
-      <p>Response time is usually within 24–48 hours.</p>
+    <div class="info dual" data-en="We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at escribanoina7@gmail.com. Response time is usually within 24–48 hours."
+         data-es="¡Nos encantaría saber de ti! Para pedidos, opiniones o consultas comerciales, por favor completa el formulario o escríbenos a escribanoina7@gmail.com. Respondemos en 24–48 horas.">
+      We’d love to hear from you! For orders, feedback, or business inquiries, please fill out the form above or email us directly at <a href="mailto:escribanoina7@gmail.com">escribanoina7@gmail.com</a>.
+      <br />Response time is usually within 24–48 hours.
     </div>
   </section>
 
@@ -153,6 +170,19 @@
   <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
   <script>
+    let isSpanish = false;
+    function toggleLanguage() {
+      isSpanish = !isSpanish;
+      document.querySelectorAll(".dual").forEach(el => {
+        const text = isSpanish ? el.dataset.es : el.dataset.en;
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.placeholder = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+      document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
+    }
     window.onscroll = () => {
       document.getElementById("backToTop").style.display =
         window.scrollY > 300 ? "block" : "none";
