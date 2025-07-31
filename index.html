@@ -150,48 +150,11 @@
       font-size: 14px;
       color: #444;
     }
-
-    .order-form {
-      max-width: 600px;
-      margin: 60px auto;
-      background: #f9f4f0;
-      padding: 30px;
-      border-radius: 10px;
-      border: 1px solid #e0dcd8;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    .order-form h2 {
-      text-align: center;
-      color: #6f1d1b;
-      margin-bottom: 20px;
-    }
-    .order-form input, .order-form select, .order-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-family: 'Georgia', serif;
-    }
-    .order-form button {
-      background-color: #6f1d1b;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .order-form button:hover {
-      background-color: #bb9457;
-    }
-
     footer {
       text-align: center;
       font-size: 14px;
       margin-top: auto;
     }
-
     #backToTop {
       position: fixed;
       bottom: 25px;
@@ -207,137 +170,94 @@
     #backToTop:hover {
       background-color: #bb9457;
     }
-
-    @media (max-width: 600px) {
-      header, footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 20px;
-      }
-      nav {
-        margin-top: 10px;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .hero h1 {
-        font-size: 28px;
-      }
-      .hero p {
-        font-size: 14px;
-      }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
-      <a href="Feedback.html">FEEDBACK</a>
-      <button class="language-toggle" onclick="toggleLanguage()">Español</button>
-    </nav>
-  </header>
+<header>
+  <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="About.html">ABOUT</a>
+    <a href="Contact.html">CONTACT</a>
+    <a href="Feedback.html">FEEDBACK</a>
+    <button class="language-toggle" onclick="toggleLanguage()">Español</button>
+  </nav>
+</header>
 
-  <section class="hero">
-    <img src="images/Logo.png" alt="Petite Desserts Logo">
-    <h1 id="hero-title">Peruvian Sweets & Traditions</h1>
-    <p id="hero-sub">Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
-    <a href="Contact.html" class="shop-btn">Contact Us</a>
-  </section>
+<section class="hero">
+  <img src="images/Logo.png" alt="Petite Desserts Logo">
+  <h1 id="hero-title">Peruvian Sweets & Traditions</h1>
+  <p id="hero-sub">Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
+  <a href="Contact.html" class="shop-btn">Contact Us</a>
+</section>
 
-  <section class="product-section">
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/alfajores.png" alt="Alfajores">
-      <h3 class="dual" data-en="Alfajorcitos" data-es="Alfajorcitos">Alfajorcitos</h3>
-      <p class="dual" data-en="Buttery shortbread cookies filled with dulce de leche." data-es="Galletas de mantequilla rellenas con manjar blanco.">Buttery shortbread cookies filled with dulce de leche.</p>
-    </div>
+<section class="product-section">
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/alfajores.png" alt="Alfajores">
+    <h3 class="dual" data-en="Alfajorcitos" data-es="Alfajorcitos">Alfajorcitos</h3>
+    <p class="dual" data-en="Buttery shortbread cookies filled with dulce de leche." data-es="Galletas de mantequilla rellenas con manjar blanco.">Buttery shortbread cookies filled with dulce de leche.</p>
+  </div>
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/flan.png" alt="Flan">
+    <h3 class="dual" data-en="Peruvian Flan" data-es="Flan Peruano">Peruvian Flan</h3>
+    <p class="dual" data-en="Silky caramel flan with a Peruvian twist." data-es="Flan de caramelo con un toque peruano.">Silky caramel flan with a Peruvian twist.</p>
+  </div>
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/arrozconleche.png" alt="Arroz con Leche">
+    <h3 class="dual" data-en="Arroz con Leche" data-es="Arroz con Leche">Arroz con Leche</h3>
+    <p class="dual" data-en="Creamy rice pudding with cinnamon." data-es="Arroz con leche cremoso con canela.">Creamy rice pudding with cinnamon.</p>
+  </div>
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/mazamorra.png" alt="Mazamorra Morada">
+    <h3 class="dual" data-en="Mazamorra Morada" data-es="Mazamorra Morada">Mazamorra Morada</h3>
+    <p class="dual" data-en="Purple corn pudding with fruit and spice." data-es="Postre de maíz morado con frutas y especias.">Purple corn pudding with fruit and spice.</p>
+  </div>
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/chocotejas.png" alt="Chocotejas">
+    <h3 class="dual" data-en="Chocotejas" data-es="Chocotejas">Chocotejas</h3>
+    <p class="dual" data-en="Chocolate candies filled with sweet manjar blanco." data-es="Dulces de chocolate rellenos de manjar blanco.">Chocolate candies filled with sweet manjar blanco.</p>
+  </div>
+  <div class="product-card">
+    <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+    <img src="images/pie.png" alt="Pie de Limón">
+    <h3 class="dual" data-en="Pie de Limón" data-es="Pie de Limón">Pie de Limón</h3>
+    <p class="dual" data-en="Tart lemon pie with creamy topping." data-es="Pie de limón con cobertura cremosa.">Tart lemon pie with creamy topping.</p>
+  </div>
+</section>
 
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/flan.png" alt="Flan">
-      <h3 class="dual" data-en="Peruvian Flan" data-es="Flan Peruano">Peruvian Flan</h3>
-      <p class="dual" data-en="Silky caramel flan with a Peruvian twist." data-es="Flan de caramelo con un toque peruano.">Silky caramel flan with a Peruvian twist.</p>
-    </div>
+<footer>
+  &copy; 2025 Petite Desserts. All rights reserved.
+</footer>
 
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/arrozconleche.png" alt="Arroz con Leche">
-      <h3 class="dual" data-en="Arroz con Leche" data-es="Arroz con Leche">Arroz con Leche</h3>
-      <p class="dual" data-en="Creamy rice pudding with cinnamon." data-es="Arroz con leche cremoso con canela.">Creamy rice pudding with cinnamon.</p>
-    </div>
+<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
 
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/mazamorra.png" alt="Mazamorra Morada">
-      <h3 class="dual" data-en="Mazamorra Morada" data-es="Mazamorra Morada">Mazamorra Morada</h3>
-      <p class="dual" data-en="Purple corn pudding with fruit and spice." data-es="Postre de maíz morado con frutas y especias.">Purple corn pudding with fruit and spice.</p>
-    </div>
+<script>
+  let isSpanish = false;
+  function toggleLanguage() {
+    isSpanish = !isSpanish;
+    document.getElementById("hero-title").textContent = isSpanish
+      ? "Dulces y Tradiciones Peruanas"
+      : "Peruvian Sweets & Traditions";
+    document.getElementById("hero-sub").textContent = isSpanish
+      ? "Disfruta la calidez del Perú en cada bocado. Explora nuestros postres tradicionales."
+      : "Experience the warmth of Peru with every bite. Explore traditional desserts below.";
+    document.querySelectorAll(".dual").forEach(el => {
+      const text = isSpanish ? el.dataset.es : el.dataset.en;
+      if (text) el.textContent = text;
+    });
+    document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
+  }
 
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/chocotejas.png" alt="Chocotejas">
-      <h3 class="dual" data-en="Chocotejas" data-es="Chocotejas">Chocotejas</h3>
-      <p class="dual" data-en="Chocolate candies filled with sweet manjar blanco." data-es="Dulces de chocolate rellenos de manjar blanco.">Chocolate candies filled with sweet manjar blanco.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/pie.png" alt="Pie de Limón">
-      <h3 class="dual" data-en="Pie de Limón" data-es="Pie de Limón">Pie de Limón</h3>
-      <p class="dual" data-en="Tart lemon pie with creamy topping." data-es="Pie de limón con cobertura cremosa.">Tart lemon pie with creamy topping.</p>
-    </div>
-  </section>
-
-  <section class="order-form">
-    <h2>Request an Order</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <select name="dessert">
-        <option value="">Select Dessert</option>
-        <option value="alfajorcitos">Alfajorcitos</option>
-        <option value="flan">Peruvian Flan</option>
-        <option value="arroz">Arroz con Leche</option>
-        <option value="mazamorra">Mazamorra Morada</option>
-        <option value="chocotejas">Chocotejas</option>
-        <option value="pie">Pie de Limón</option>
-      </select>
-      <textarea name="notes" rows="4" placeholder="Any special requests?"></textarea>
-      <button type="submit">Submit Request</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Petite Desserts. All rights reserved.
-  </footer>
-
-  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
-
-  <script>
-    let isSpanish = false;
-    function toggleLanguage() {
-      isSpanish = !isSpanish;
-      document.getElementById("hero-title").textContent = isSpanish
-        ? "Dulces y Tradiciones Peruanas"
-        : "Peruvian Sweets & Traditions";
-      document.getElementById("hero-sub").textContent = isSpanish
-        ? "Disfruta la calidez del Perú en cada bocado. Explora nuestros postres tradicionales."
-        : "Experience the warmth of Peru with every bite. Explore traditional desserts below.";
-      document.querySelectorAll(".dual").forEach(el => {
-        const text = isSpanish ? el.dataset.es : el.dataset.en;
-        if (text) el.textContent = text;
-      });
-      document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
-    }
-
-    window.onscroll = () => {
-      const y = window.scrollY;
-      document.getElementById("backToTop").style.display = y > 300 ? "block" : "none";
-      document.body.classList.toggle("scrolled", y > 10);
-    };
-  </script>
+  window.onscroll = () => {
+    const y = window.scrollY;
+    document.getElementById("backToTop").style.display = y > 300 ? "block" : "none";
+    document.body.classList.toggle("scrolled", y > 10);
+  };
+</script>
 </body>
 </html>
