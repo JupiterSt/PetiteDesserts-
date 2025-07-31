@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop - Petite Desserts</title>
   <style>
     body {
       margin: 0;
       font-family: 'Georgia', serif;
       background-color: #f3ece7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    .header {
+    .header, .footer {
       background-color: #6f1d1b;
+      color: #fff;
       padding: 20px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #fff;
     }
-    .header nav a {
+    nav a {
       margin: 0 15px;
       text-decoration: none;
       color: #fff;
@@ -30,28 +33,24 @@
       font-size: 36px;
       margin: 40px 0 20px;
     }
-    .filter-section {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .filter-section select {
-      padding: 8px;
-      font-size: 14px;
-    }
     .product-section {
-      padding: 40px 60px;
-      background-color: #fff;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 30px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .product-card {
-      background-color: #f9f4f0;
+      background: #f9f4f0;
       border: 1px solid #e0dcd8;
       border-radius: 10px;
       padding: 20px;
+      width: 260px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease;
     }
     .product-card img {
       width: 100%;
@@ -60,122 +59,78 @@
       border-radius: 8px;
     }
     .product-card h3 {
-      margin: 15px 0 5px;
+      margin: 15px 0 10px;
       font-size: 18px;
       color: #6f1d1b;
     }
-    .product-card p {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 8px;
-    }
-    .price {
+    .product-card .price {
       font-weight: bold;
       color: #bb9457;
-      margin-bottom: 10px;
     }
-    .add-to-cart {
-      padding: 8px 16px;
-      background-color: #6f1d1b;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .checkout-section {
+    .footer {
       text-align: center;
-      margin: 40px 0;
+      padding: 15px;
+      font-size: 14px;
     }
-    .checkout-btn {
-      padding: 12px 30px;
-      background-color: #bb9457;
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #6f1d1b;
       color: white;
       border: none;
-      font-size: 16px;
-      border-radius: 5px;
+      padding: 10px 15px;
+      border-radius: 50px;
       cursor: pointer;
-    }
-    #cart-summary {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 10px;
-      color: #6f1d1b;
-    }
-    @media (max-width: 1024px) {
-      .product-section {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      display: none;
     }
     @media (max-width: 600px) {
-      .product-section {
-        grid-template-columns: 1fr;
+      .header, .footer {
+        flex-direction: column;
+        text-align: center;
       }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo">
-      <h2>Petite <span style="font-weight: lighter">Desserts</span></h2>
-    </div>
+    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
     <nav>
       <a href="index.html">HOME</a>
       <a href="Shop.html">SHOP</a>
-      <a href="#">ABOUT</a>
-      <a href="#">CONTACT</a>
+      <a href="About.html">ABOUT</a>
+      <a href="Contact.html">CONTACT</a>
     </nav>
   </header>
+
   <h1 class="shop-title">Shop All Desserts</h1>
-  <div class="filter-section">
-    <label for="filter">Filter by type:</label>
-    <select id="filter" onchange="filterProducts()">
-      <option value="all">All</option>
-      <option value="pudding">Pudding</option>
-      <option value="donut">Donut</option>
-      <option value="custard">Custard</option>
-      <option value="icecream">Ice Cream</option>
-    </select>
-  </div>
-  <section class="product-section" id="product-list">
-    <!-- Product cards remain unchanged -->
+  <section class="product-section">
+    <div class="product-card">
+      <img src="images/alfajores.jpg" alt="Alfajores">
+      <h3>Alfajorcitos</h3>
+      <p class="price">$2.00</p>
+    </div>
+    <div class="product-card">
+      <img src="images/arroz.jpg" alt="Arroz con Leche">
+      <h3>Rice Pudding</h3>
+      <p class="price">$3.50</p>
+    </div>
+    <!-- Add more products as needed -->
   </section>
-  <div class="checkout-section">
-    <div id="cart-summary">Cart: 0 items | Total: $0.00</div>
-    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-  </div>
+
+  <footer class="footer">© 2025 Petite Desserts. All rights reserved.</footer>
+
+  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
   <script>
-    let cart = [];
-
-    function filterProducts() {
-      const category = document.getElementById('filter').value;
-      const products = document.querySelectorAll('.product-card');
-      products.forEach(card => {
-        const type = card.getAttribute('data-category');
-        card.style.display = (category === 'all' || category === type) ? 'block' : 'none';
-      });
-    }
-
-    document.querySelectorAll('.add-to-cart').forEach((button, index) => {
-      button.addEventListener('click', () => {
-        const card = button.closest('.product-card');
-        const title = card.querySelector('h3').textContent;
-        const price = parseFloat(card.querySelector('.price').textContent.replace('$', ''));
-        cart.push({ title, price });
-        updateCartSummary();
-      });
-    });
-
-    function updateCartSummary() {
-      const totalItems = cart.length;
-      const totalPrice = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
-      document.getElementById('cart-summary').textContent = `Cart: ${totalItems} items | Total: $${totalPrice}`;
-    }
-
-    function checkout() {
-      alert("Thank you for your purchase!\n\nItems in Cart: " + cart.length);
-      cart = [];
-      updateCartSummary();
-    }
+    window.onscroll = () => {
+      document.getElementById("backToTop").style.display =
+        window.scrollY > 300 ? "block" : "none";
+    };
   </script>
 </body>
 </html>
