@@ -9,6 +9,9 @@
       margin: 0;
       font-family: 'Georgia', serif;
       background-color: #f3ece7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     .header {
       background-color: #6f1d1b;
@@ -76,23 +79,18 @@
       color: #fff;
       border-radius: 5px;
     }
-    .hero-text button.learn-btn {
-      padding: 10px 20px;
-      font-size: 14px;
-      margin: 5px;
-      background-color: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+
     .product-section {
-      padding: 60px;
+      padding: 60px 20px;
       background-color: #fff;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .product-card {
       background-color: #f9f4f0;
       border: 1px solid #e0dcd8;
@@ -100,6 +98,7 @@
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      width: 260px;
     }
     .product-card img {
       width: 100%;
@@ -119,15 +118,13 @@
       font-size: 14px;
       color: #444;
     }
-    @media (max-width: 1024px) {
-      .product-section {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 600px) {
-      .product-section {
-        grid-template-columns: 1fr;
-      }
+    .footer {
+      text-align: center;
+      background-color: #6f1d1b;
+      color: #fff;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: auto;
     }
   </style>
 </head>
@@ -153,7 +150,6 @@
       <h1 id="hero-title">Peruvian Sweets & Traditions</h1>
       <p id="hero-sub">Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
       <a href="Shop.html" class="shop-btn">SHOP NOW</a>
-      <button class="learn-btn">LEARN MORE</button>
     </div>
   </section>
 
@@ -195,6 +191,10 @@
     </div>
   </section>
 
+  <footer class="footer">
+    © 2025 Petite Desserts. All rights reserved.
+  </footer>
+
   <script>
     let isSpanish = false;
     function toggleLanguage() {
@@ -207,7 +207,7 @@
       document.getElementById("hero-title").textContent = isSpanish
         ? "Dulces y Tradiciones Peruanas"
         : "Peruvian Sweets & Traditions";
-        
+
       document.getElementById("hero-sub").textContent = isSpanish
         ? "Disfruta la calidez del Perú en cada bocado. Explora nuestros postres tradicionales."
         : "Experience the warmth of Peru with every bite. Explore traditional desserts below.";
