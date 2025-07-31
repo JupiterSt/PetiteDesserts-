@@ -79,7 +79,7 @@
       border-radius: 5px;
     }
 
-    /* Correct left-to-right star styles */
+    /* Updated stars: left to right fill */
     .stars {
       display: flex;
       justify-content: center;
@@ -94,9 +94,6 @@
       color: #ccc;
       cursor: pointer;
       transition: color 0.3s;
-    }
-    .stars input:checked ~ label {
-      color: #ccc;
     }
     .stars input:checked + label,
     .stars input:checked + label ~ label {
@@ -163,12 +160,13 @@
         <option value="Chocotejas">Chocotejas</option>
       </select>
 
+      <!-- LEFT TO RIGHT STARS -->
       <div class="stars">
-        <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
-        <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
-        <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
-        <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
-        <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+        <label for="star1">★</label><input type="radio" name="rating" id="star1" value="1">
+        <label for="star2">★</label><input type="radio" name="rating" id="star2" value="2">
+        <label for="star3">★</label><input type="radio" name="rating" id="star3" value="3">
+        <label for="star4">★</label><input type="radio" name="rating" id="star4" value="4">
+        <label for="star5">★</label><input type="radio" name="rating" id="star5" value="5">
       </div>
 
       <textarea class="dual" rows="5" placeholder="Write your feedback here..." data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." required></textarea>
