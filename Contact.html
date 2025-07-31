@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Petite Desserts</title>
+  <title>Order - Petite Desserts</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&display=swap">
   <style>
     body {
@@ -61,7 +61,7 @@
     }
 
     .contact-section {
-      max-width: 600px;
+      max-width: 700px;
       margin: 60px auto;
       background: #fff6f0;
       padding: 30px;
@@ -141,42 +141,61 @@
     <nav>
       <a href="index.html">HOME</a>
       <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
+      <a href="Shop.html">SHOP</a>
+      <a href="Contact.html">ORDER</a>
       <a href="Feedback.html">FEEDBACK</a>
       <button class="language-toggle" onclick="toggleLanguage()">Español</button>
     </nav>
   </header>
 
   <section class="contact-section">
-    <h2 class="dual" data-en="Special Request Form" data-es="Formulario de Solicitud Especial">Special Request Form</h2>
-    <p class="dual" data-en="Tell us about your event and we'll make it sweet." data-es="Cuéntanos sobre tu evento y lo haremos dulce.">Tell us about your event and we'll make it sweet.</p>
-    <form action="#" method="POST" class="contact-form">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="name" required>
+    <h2 class="dual" data-en="Dessert Order Form" data-es="Formulario de Pedido de Postres">Dessert Order Form</h2>
+    <p class="dual" data-en="Place your order and we’ll contact you to confirm details." data-es="Haz tu pedido y te contactaremos para confirmar los detalles.">Place your order and we’ll contact you to confirm details.</p>
+    
+    <!-- ✅ Replace your@email.com with the one from FormSubmit -->
+    <form action="https://formsubmit.co/your@email.com" method="POST" class="contact-form" id="orderForm">
+      <input type="hidden" name="_next" value="confirmation.html">
+      <input type="hidden" name="_subject" value="New Dessert Order!">
 
-      <label for="company">Company (Optional)</label>
-      <input type="text" id="company" name="company">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="Name" required>
 
       <label for="phone">Phone *</label>
-      <input type="tel" id="phone" name="phone" required>
+      <input type="tel" id="phone" name="Phone" required>
 
       <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="Email" required>
 
-      <label for="eventType">Type of Request *</label>
-      <select id="eventType" name="eventType" required>
-        <option value="">-- Select an Option --</option>
-        <option value="wedding">Wedding</option>
-        <option value="birthday">Birthday</option>
-        <option value="business">Business Event</option>
-        <option value="party">Party</option>
-        <option value="other">Other</option>
+      <label for="dessert">Select Dessert *</label>
+      <select id="dessert" name="Dessert" required>
+        <option value="">-- Select --</option>
+        <option value="Alfajorcitos">Alfajorcitos</option>
+        <option value="Arroz con Leche">Arroz con Leche</option>
+        <option value="Mazamorra">Mazamorra Morada</option>
+        <option value="Pie de Limón">Pie de Limón</option>
+        <option value="Chocotejas">Chocotejas</option>
+        <option value="Cake Jars">Cake Jars</option>
+        <option value="Other">Other</option>
       </select>
 
-      <label for="description">Tell us what you need *</label>
-      <textarea id="description" name="description" rows="5" required></textarea>
+      <label for="quantity">Quantity *</label>
+      <input type="number" id="quantity" name="Quantity" min="1" required>
 
-      <button type="submit" class="submit-btn">Send Request</button>
+      <label for="date">Preferred Delivery Date *</label>
+      <input type="date" id="date" name="Preferred Date" required>
+
+      <label for="payment">Payment Method *</label>
+      <select id="payment" name="Payment Method" required>
+        <option value="">-- Select --</option>
+        <option value="Cash">Cash</option>
+        <option value="Check">Check</option>
+        <option value="Pay on Pickup">Pay on Pickup</option>
+      </select>
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="Notes" rows="4"></textarea>
+
+      <button type="submit" class="submit-btn">Submit Order</button>
     </form>
   </section>
 
@@ -194,6 +213,30 @@
       });
       document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
     }
+
+    // Confirm order before submitting
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      const form = e.target;
+
+      const summary = `
+Please review your order:
+
+Name: ${form.name.value}
+Phone: ${form.phone.value}
+Email: ${form.email.value}
+Dessert: ${form.dessert.value}
+Quantity: ${form.quantity.value}
+Date: ${form.date.value}
+Payment: ${form.payment.value}
+Notes: ${form.notes.value || 'None'}
+
+Click OK to send or Cancel to revise.
+      `;
+
+      if (!confirm(summary)) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
