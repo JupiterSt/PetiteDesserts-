@@ -89,7 +89,7 @@
     .stars {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      direction: ltr;
     }
     .stars input[type="radio"] {
       display: none;
@@ -100,9 +100,15 @@
       cursor: pointer;
       transition: color 0.2s;
     }
-    .stars input[type="radio"]:checked ~ label,
     .stars label:hover,
     .stars label:hover ~ label {
+      color: #f5b301;
+    }
+    .stars input[type="radio"]:checked ~ label {
+      color: #ccc;
+    }
+    .stars input[type="radio"]:checked + label,
+    .stars input[type="radio"]:checked + label ~ label {
       color: #f5b301;
     }
     button {
@@ -157,7 +163,7 @@
   </header>
 
   <div class="container">
-    <h1 class="dual" data-en="Leave Product Feedback" data-es="Deja tu Opinión">Leave Product Feedback</h1>
+    <h1 class="dual" data-en="Leave Product Feedback" data-es="Deja tu Opinión"></h1>
     <form onsubmit="handleFeedback(event)">
       <input class="dual" type="text" data-en="Your Name" data-es="Tu Nombre" placeholder="Your Name" required />
       <input class="dual" type="email" data-en="Your Email" data-es="Tu Correo" placeholder="Your Email" required />
@@ -172,15 +178,15 @@
       </select>
 
       <div class="stars">
-        <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
-        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star1" name="rating" value="1" required><label for="star1">★</label>
         <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
       </div>
 
       <textarea class="dual" data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." rows="5" placeholder="Write your feedback here..." required></textarea>
-      <button class="dual" type="submit" data-en="Submit Feedback" data-es="Enviar Opinión">Submit Feedback</button>
+      <button class="dual" type="submit" data-en="Submit Feedback" data-es="Enviar Opinión"></button>
     </form>
   </div>
 
@@ -199,6 +205,8 @@
         } else if (el.tagName === "SELECT") {
           const firstOption = el.querySelector("option[value='']");
           if (firstOption) firstOption.textContent = text;
+        } else if (el.tagName === "BUTTON") {
+          el.textContent = text;
         } else {
           el.textContent = text;
         }
@@ -212,6 +220,14 @@
       alert(isSpanish ? "¡Gracias por tu opinión!" : "Thank you for your feedback! 🍰");
       event.target.reset();
     }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'es') {
+        isSpanish = true;
+        toggleLanguage();
+      }
+    });
   </script>
 </body>
 </html>
