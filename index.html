@@ -38,6 +38,10 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    header a.title-link {
+      text-decoration: none;
+      color: inherit;
+    }
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -191,7 +195,9 @@
 </head>
 <body>
   <header>
-    <h2>Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    <a href="index.html" class="title-link">
+      <h2 style="margin: 0;">Petite <span style="font-weight: lighter;">Desserts</span></h2>
+    </a>
     <nav>
       <a href="index.html">HOME</a>
       <a href="About.html">ABOUT</a>
