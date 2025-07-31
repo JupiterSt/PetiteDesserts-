@@ -80,13 +80,22 @@
     }
     .stars {
       display: flex;
-      justify-content: space-between;
-      max-width: 240px;
-      margin: 0 auto;
+      justify-content: center;
+      gap: 10px;
+    }
+    .stars input[type="radio"] {
+      display: none;
     }
     .stars label {
-      font-size: 24px;
+      font-size: 28px;
+      color: #ccc;
       cursor: pointer;
+      transition: color 0.2s;
+    }
+    .stars input[type="radio"]:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: #f5b301;
     }
     button {
       background-color: #6f1d1b;
@@ -147,11 +156,11 @@
       </select>
 
       <div class="stars">
-        <label><input type="radio" name="rating" value="1" required />⭐</label>
-        <label><input type="radio" name="rating" value="2" />⭐⭐</label>
-        <label><input type="radio" name="rating" value="3" />⭐⭐⭐</label>
-        <label><input type="radio" name="rating" value="4" />⭐⭐⭐⭐</label>
-        <label><input type="radio" name="rating" value="5" />⭐⭐⭐⭐⭐</label>
+        <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
       </div>
 
       <textarea class="dual" data-en="Write your feedback here..." data-es="Escribe tu opinión aquí..." rows="5" placeholder="Write your feedback here..." required></textarea>
