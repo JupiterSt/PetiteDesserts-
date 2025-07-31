@@ -14,6 +14,22 @@
       flex-direction: column;
       min-height: 100vh;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 60px;
+      width: 100%;
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12), transparent);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    body.scrolled::before {
+      opacity: 1;
+    }
     header, footer {
       background-color: #6f1d1b;
       color: #fff;
@@ -223,6 +239,12 @@
       <p class="dual" data-en="Chocolate candies filled with sweet manjar blanco." data-es="Dulces de chocolate rellenos de manjar blanco.">Chocolate candies filled with sweet manjar blanco.</p>
     </div>
     <div class="product-card">
+      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
+      <img src="images/cakejars.png" alt="Cake Jars">
+      <h3 class="dual" data-en="Cake Jars" data-es="Frascos de Pastel">Cake Jars</h3>
+      <p class="dual" data-en="Colorful layered cake jars in delightful flavors." data-es="Frascos de pastel en capas con sabores deliciosos.">Colorful layered cake jars in delightful flavors.</p>
+    </div>
+    <div class="product-card">
       <div class="tag dual" data-en="Savory" data-es="Salado">Savory</div>
       <img src="images/Causa.png" alt="Causa">
       <h3 class="dual" data-en="Causa" data-es="Causa">Causa</h3>
@@ -252,9 +274,11 @@
       });
       document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
     }
+
     window.onscroll = () => {
-      document.getElementById("backToTop").style.display =
-        window.scrollY > 300 ? "block" : "none";
+      const y = window.scrollY;
+      document.getElementById("backToTop").style.display = y > 300 ? "block" : "none";
+      document.body.classList.toggle("scrolled", y > 10);
     };
   </script>
 </body>
