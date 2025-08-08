@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — Petite Desserts</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" data-scrolled="false">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo">
+      </a>
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+          <li><a href="index.html#jars">Dessert Jars</a></li>
+          <li><a href="index.html#catering">Catering</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="#request" class="btn small">Request Order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <h1>Shop</h1>
+        <p>Place an order request. We’ll confirm timing, flavors, and delivery.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="jars">Jars</button>
+        <button class="chip" data-filter="pastries">Pastries</button>
+        <button class="chip" data-filter="traditional">Peruvian Classics</button>
+        <button class="chip" data-filter="seasonal">Seasonal</button>
+      </div>
+
+      <!-- Products -->
+      <div class="grid cards-3" id="productGrid">
+        <!-- Example product card -->
+        <article id="lemon" class="product card" data-cat="jars seasonal">
+          <img src="images/jar-lemon.jpg" alt="Pie de Limón jar">
+          <div class="card-body">
+            <h3>Pie de Limón Jar</h3>
+            <p>Tangy lemon cream & crumble.</p>
+            <div class="price">$6 / jar (min 6)</div>
+            <button class="btn request-btn" data-name="Pie de Limón Jar">Request</button>
+          </div>
+        </article>
+
+        <article id="choco" class="product card" data-cat="jars">
+          <img src="images/jar-choco.jpg" alt="Triple Chocolate jar">
+          <div class="card-body">
+            <h3>Triple Chocolate Jar</h3>
+            <p>Fudge cake & silky mousse.</p>
+            <div class="price">$6 / jar (min 6)</div>
+            <button class="btn request-btn" data-name="Triple Chocolate Jar">Request</button>
+          </div>
+        </article>
+
+        <article id="passion" class="product card" data-cat="jars traditional">
+          <img src="images/jar-passion.jpg" alt="Passion fruit jar">
+          <div class="card-body">
+            <h3>Maracuyá Jar</h3>
+            <p>Bright passion fruit cream.</p>
+            <div class="price">$7 / jar (min 6)</div>
+            <button class="btn request-btn" data-name="Maracuyá Jar">Request</button>
+          </div>
+        </article>
+
+        <article class="product card" data-cat="pastries traditional">
+          <img src="images/alfajorcitos.jpg" alt="Alfajorcitos">
+          <div class="card-body">
+            <h3>Alfajorcitos</h3>
+            <p>Buttery cookies with manjar blanco.</p>
+            <div class="price">$18 / dozen</div>
+            <button class="btn request-btn" data-name="Alfajorcitos">Request</button>
+          </div>
+        </article>
+
+        <article class="product card" data-cat="pastries">
+          <img src="images/tiramisu.jpg" alt="Tiramisu jar">
+          <div class="card-body">
+            <h3>Tiramisu Jar</h3>
+            <p>Classic espresso & mascarpone.</p>
+            <div class="price">$7 / jar (min 6)</div>
+            <button class="btn request-btn" data-name="Tiramisu Jar">Request</button>
+          </div>
+        </article>
+
+        <article class="product card" data-cat="traditional">
+          <img src="images/mazamorra.png" alt="Mazamorra Morada">
+          <div class="card-body">
+            <h3>Mazamorra Morada</h3>
+            <p>Purple corn pudding with fruit & spice.</p>
+            <div class="price">$22 / tray (serves 10)</div>
+            <button class="btn request-btn" data-name="Mazamorra Morada">Request</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Request Modal -->
+  <dialog id="requestModal" class="modal">
+    <form method="dialog" class="modal-box" id="requestForm">
+      <button class="close" aria-label="Close">×</button>
+      <h3>Order Request</h3>
+      <p class="muted">We’ll confirm availability and final pricing by email.</p>
+      <label>Item<input name="item" id="reqItem" required></label>
+      <div class="grid two">
+        <label>Name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+      </div>
+      <div class="grid two">
+        <label>Quantity<input name="qty" type="number" min="1" value="6" required></label>
+        <label>Date<input name="date" type="date"></label>
+      </div>
+      <label>Notes<textarea name="notes" rows="4" placeholder="Flavor tweaks, allergies, delivery notes…"></textarea></label>
+      <button class="btn" type="submit">Send Request</button>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Petite Desserts</p>
+      <nav class="footer-nav">
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#reviews">Reviews</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
