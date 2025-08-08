@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reviews — Petite Desserts</title>
-  <meta name="description" content="Sweet words from happy clients." />
+  <meta name="description" content="Sweet words from happy clients across Huron, SD and surrounding areas." />
+  <link rel="canonical" href="https://jupiterst.github.io/PetiteDesserts-/reviews.html" />
+
+  <!-- Icons & assets -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+
+  <!-- (Optional) Organization JSON-LD; add AggregateRating later when you have star data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Petite Desserts",
+    "url":"https://jupiterst.github.io/PetiteDesserts-/",
+    "logo":"https://jupiterst.github.io/PetiteDesserts-/images/logo.svg",
+    "sameAs":[]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header (consistent nav; Reviews highlighted) -->
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
       <nav class="nav">
@@ -19,11 +38,15 @@
           <li><a href="catering.html">Catering</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reviews.html" aria-current="page">Reviews</a></li>
           <li><a href="contact.html" class="btn small">Contact</a></li>
         </ul>
       </nav>
-      <a class="brand" href="index.html" style="margin-left:auto;">
-        <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160">
+      <a class="brand" href="index.html" aria-label="Petite Desserts home" style="margin-left:auto;">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160">
+        </picture>
       </a>
     </div>
   </header>
@@ -32,16 +55,30 @@
     <div class="container">
       <div class="section-head">
         <h1>Reviews</h1>
-        <p>Real feedback from happy clients.</p>
+        <p>Real feedback from happy clients. Want to add yours? <a class="link" href="contact.html">Contact us</a> after your event.</p>
       </div>
+
+      <!-- script.js auto-populates this from the reviews[] array -->
       <div class="grid cards-3" id="reviewsGrid"></div>
+
+      <!-- Optional: Manual testimonials if you want static copies
+      <div class="grid cards-3">
+        <figure class="review" data-animate>
+          <blockquote>“Our guests devoured the dessert jars. On-time delivery and beautiful setup.”</blockquote>
+          <figcaption>— Kayla, bridal shower</figcaption>
+        </figure>
+      </div>
+      -->
     </div>
   </main>
 
+  <!-- Footer (consistent) -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Petite Desserts</p>
+      <p>© <span id="year"></span> Petite Desserts — Huron, SD</p>
       <nav class="footer-nav">
+        <a href="shop.html">Jars</a>
+        <a href="catering.html">Catering</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
