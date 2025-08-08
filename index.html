@@ -3,37 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Petite Desserts — Catering & Dessert Jars in Huron, SD</title>
-  <meta name="description" content="Petite Desserts offers elegant catering, dessert tables, and our signature dessert jars. Small-batch, made-to-order in Huron, South Dakota." />
-  <link rel="canonical" href="https://your-domain.example/" />
-
-  <!-- Icons -->
-  <link rel="icon" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
-
-  <!-- Social cards -->
-  <meta property="og:title" content="Petite Desserts — Catering & Dessert Jars" />
-  <meta property="og:description" content="Elegant catering & our famous dessert jars. Small-batch, made-to-order in Huron, SD." />
-  <meta property="og:image" content="images/social-card.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Preload hero image for snappy paint -->
-  <link rel="preload" as="image" href="images/hero-jars.avif">
-
+  <meta name="description" content="Petite Desserts offers elegant catering and our signature dessert jars. Small-batch, made-to-order in Huron, South Dakota." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header (nav on left, logo on right) -->
+  <header class="site-header" data-scrolled="false">
+    <div class="container header-inner">
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+          <li><a href="shop.html">Jars</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html" class="btn small">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="brand" href="index.html" aria-label="Petite Desserts home" style="margin-left:auto;">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160" />
+        </picture>
+      </a>
+    </div>
+  </header>
 
-  <!-- LocalBusiness JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Petite Desserts",
-    "image":"https://your-domain.example/images/social-card.jpg",
-    "logo":"https://your-domain.example/images/logo.svg",
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-media" role="img" aria-label="Assorted dessert jars on a tray"></div>
+    <div class="container hero-content">
+      <h1 class="headline">Catering & Dessert Jars<br><span class="accent">made beautifully simple.</span></h1>
+      <p class="sub">From elegant events to cozy cravings — we’ve got the sweet part covered.</p>
+      <div class="hero-cta">
+        <!-- SEND TO SEPARATE PAGES -->
+        <a href="shop.html" class="btn">Explore Jars</a>
+        <a href="catering.html" class="btn ghost">Catering Options</a>
+      </div>
+      <div class="hero-badge" aria-hidden="true">Small-batch • Made-to-order • Huron, SD</div>
+    </div>
+    <div class="hero-vignette"></div>
+  </section>
+
+  <!-- Keep just a light preview on the homepage (cleaner look).
+       Deep dives live on their pages. -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <p>Simple, beautiful desserts for events and everyday treats.</p>
+      </div>
+      <div class="grid cards-3">
+        <article class="card" data-animate>
+          <img src="images/jar-lemon.jpg" alt="Lemon jar">
+          <div class="card-body">
+            <h3>Dessert Jars</h3>
+            <p>Portable, pretty, perfectly portioned.</p>
+            <a class="link" href="shop.html">See all jars →</a>
+          </div>
+        </article>
+        <article class="card" data-animate>
+          <img src="images/catering-spread.jpg" alt="Catering spread">
+          <div class="card-body">
+            <h3>Catering</h3>
+            <p>Tables, tastings, and tailored menus.</p>
+            <a class="link" href="catering.html">Explore catering →</a>
+          </div>
+        </article>
+        <article class="card" data-animate>
+          <img src="images/g2.jpg" alt="Dessert assortment">
+          <div class="card-body">
+            <h3>Signature Sweets</h3>
+            <p>From alfajorcitos to tiramisu jars.</p>
+            <a class="link" href="menu.html">View the menu →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Petite Desserts — Catering & Baking</p>
+      <nav class="footer-nav">
+        <a href="shop.html">Jars</a>
+        <a href="catering.html">Catering</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
     "description":"Catering & dessert jars. Small-batch, made-to-order.",
     "url":"https://your-domain.example/",
     "telephone":"+1-600-000-0000",
