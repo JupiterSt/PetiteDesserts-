@@ -1,4 +1,3 @@
-/* ---------- Theme ---------- */
 :root{
   --pink:#f6dfe4;
   --cocoa:#6f1d1b;
@@ -20,7 +19,6 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-/* Utilities */
 .hp{ position:absolute; left:-9999px; opacity:0 } /* honeypot */
 .container{width:min(1120px, 92%); margin:auto}
 
