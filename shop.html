@@ -4,47 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop — Petite Desserts</title>
-  <meta name="description" content="Place a request for dessert jars, pastries, and catering trays. We confirm availability and finalize details by email." />
+  <meta name="description" content="Request orders for dessert jars, pastries, and catering trays. We confirm availability and finalize details by email." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
-
-  <!-- Product JSON-LD (examples; add more as needed) -->
-  <script type="application/ld+json">
-  [{
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"Pie de Limón Jar",
-    "image":"https://your-domain.example/images/jar-lemon.jpg",
-    "description":"Tangy lemon cream & crumble in a dessert jar.",
-    "offers":{"@type":"Offer","price":"6.00","priceCurrency":"USD","availability":"https://schema.org/InStock"}
-  },{
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"Maracuyá Jar",
-    "image":"https://your-domain.example/images/jar-passion.jpg",
-    "description":"Bright passion fruit cream in a dessert jar.",
-    "offers":{"@type":"Offer","price":"7.00","priceCurrency":"USD","availability":"https://schema.org/InStock"}
-  }]
-  </script>
 </head>
 <body>
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <picture>
-          <source srcset="images/logo.svg" type="image/svg+xml">
-          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160">
-        </picture>
-      </a>
       <nav class="nav">
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
         <ul class="nav-menu">
-          <li><a href="index.html#jars">Dessert Jars</a></li>
-          <li><a href="index.html#catering">Catering</a></li>
-          <li><a href="index.html#gallery">Gallery</a></li>
-          <li><a href="#request" class="btn small">Request Order</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html" class="btn small">Contact</a></li>
         </ul>
       </nav>
+      <a class="brand" href="index.html" style="margin-left:auto;">
+        <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160">
+      </a>
     </div>
   </header>
 
@@ -52,7 +32,7 @@
     <div class="container">
       <div class="section-head">
         <h1>Shop</h1>
-        <p>Place an order request. We’ll confirm timing, flavors, and delivery.</p>
+        <p>Place an order request below. We’ll confirm timing, flavors, and delivery around Huron, SD.</p>
       </div>
 
       <!-- Filters -->
@@ -141,14 +121,15 @@
     </div>
   </main>
 
-  <!-- Request Modal -->
+  <!-- Request Modal (emails to your address) -->
   <dialog id="requestModal" class="modal">
-    <!-- Replace YOUR_FORMSPREE_ID -->
-    <form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID" class="modal-box" id="requestForm">
+    <form method="POST" action="https://formsubmit.co/escribanoian7@gmail.com" class="modal-box" id="requestForm">
       <button class="close" aria-label="Close">×</button>
       <h3>Order Request</h3>
       <p class="muted">We’ll confirm availability and final pricing by email.</p>
-      <input type="text" name="_gotcha" class="hp" aria-hidden="true" tabindex="-1">
+      <input type="text" name="_honey" class="hp" aria-hidden="true" tabindex="-1">
+      <input type="hidden" name="_subject" value="New Order Request — Petite Desserts">
+      <input type="hidden" name="_next" value="https://jupiterst.github.io/PetiteDesserts-/thankyou.html">
       <label>Item<input name="item" id="reqItem" required></label>
       <div class="grid two">
         <label>Name<input name="name" required></label>
@@ -167,8 +148,8 @@
     <div class="container footer-inner">
       <p>© <span id="year"></span> Petite Desserts</p>
       <nav class="footer-nav">
-        <a href="index.html#contact">Contact</a>
-        <a href="index.html#reviews">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a href="reviews.html">Reviews</a>
       </nav>
     </div>
   </footer>
