@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Menu — Petite Desserts</title>
-  <meta name="description" content="Our signature sweets and seasonal selections." />
+  <meta name="description" content="Our signature sweets and seasonal selections. Dessert jars, classic pastries, and Peruvian favorites — made-to-order in Huron, SD." />
+  <link rel="canonical" href="https://jupiterst.github.io/PetiteDesserts-/menu.html" />
+
+  <!-- Icons & assets -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+
+  <!-- ItemList JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Petite Desserts Menu",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Alfajorcitos"},
+      {"@type":"ListItem","position":2,"name":"Mazamorra Morada"},
+      {"@type":"ListItem","position":3,"name":"Arroz con Leche"},
+      {"@type":"ListItem","position":4,"name":"Cheesecake Cups"},
+      {"@type":"ListItem","position":5,"name":"Tiramisu Jars"},
+      {"@type":"ListItem","position":6,"name":"Seasonal Fruit Tartlets"}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header (same order everywhere; Menu highlighted) -->
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
       <nav class="nav">
@@ -17,13 +41,17 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Jars</a></li>
           <li><a href="catering.html">Catering</a></li>
+          <li><a href="menu.html" aria-current="page">Menu</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html" class="btn small">Contact</a></li>
         </ul>
       </nav>
-      <a class="brand" href="index.html" style="margin-left:auto;">
-        <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160">
+      <a class="brand" href="index.html" aria-label="Petite Desserts home" style="margin-left:auto;">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160">
+        </picture>
       </a>
     </div>
   </header>
@@ -32,9 +60,11 @@
     <div class="container">
       <div class="section-head">
         <h1>Menu</h1>
-        <p>Rotate seasonally — ask about custom flavors.</p>
+        <p>Rotates seasonally — ask about custom flavors, tasting flights, and dietary options (GF, nut‑free, egg‑free).</p>
       </div>
-      <div class="grid tags">
+
+      <!-- Quick categories -->
+      <div class="grid tags" data-animate>
         <span class="chip">Alfajorcitos</span>
         <span class="chip">Mazamorra Morada</span>
         <span class="chip">Arroz con Leche</span>
@@ -42,16 +72,64 @@
         <span class="chip">Tiramisu Jars</span>
         <span class="chip">Seasonal Fruit Tartlets</span>
       </div>
-      <div class="section" style="padding-top:24px">
+
+      <!-- Featured items (optional showcase) -->
+      <section class="section" style="padding-top:28px">
+        <div class="grid cards-3">
+          <article class="card" data-animate>
+            <picture>
+              <source srcset="images/jar-lemon.avif" type="image/avif">
+              <source srcset="images/jar-lemon.webp" type="image/webp">
+              <img loading="lazy" src="images/jar-lemon.jpg" alt="Pie de Limón dessert jar" width="600" height="400">
+            </picture>
+            <div class="card-body">
+              <h3>Pie de Limón Jar</h3>
+              <p>Tangy lemon cream, crumble, and soft meringue.</p>
+              <div class="price">$6 / jar (min 6)</div>
+              <a class="link" href="shop.html#lemon">Request order →</a>
+            </div>
+          </article>
+
+          <article class="card" data-animate>
+            <picture>
+              <source srcset="images/jar-choco.avif" type="image/avif">
+              <source srcset="images/jar-choco.webp" type="image/webp">
+              <img loading="lazy" src="images/jar-choco.jpg" alt="Triple Chocolate dessert jar" width="600" height="400">
+            </picture>
+            <div class="card-body">
+              <h3>Triple Chocolate Jar</h3>
+              <p>Silky mousse, fudge cake, and chocolate crumbs.</p>
+              <div class="price">$6 / jar (min 6)</div>
+              <a class="link" href="shop.html#choco">Request order →</a>
+            </div>
+          </article>
+
+          <article class="card" data-animate>
+            <img loading="lazy" src="images/alfajorcitos.jpg" alt="Alfajorcitos" width="600" height="400">
+            <div class="card-body">
+              <h3>Alfajorcitos</h3>
+              <p>Buttery sandwich cookies with manjar blanco.</p>
+              <div class="price">$18 / dozen</div>
+              <a class="link" href="shop.html">Request order →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="section" style="padding-top:20px">
         <a class="btn" href="contact.html">Ask for availability</a>
       </div>
     </div>
   </main>
 
+  <!-- Footer (consistent) -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Petite Desserts</p>
+      <p>© <span id="year"></span> Petite Desserts — Huron, SD</p>
       <nav class="footer-nav">
+        <a href="shop.html">Jars</a>
+        <a href="catering.html">Catering</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
