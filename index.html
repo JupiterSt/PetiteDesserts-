@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Petite Desserts — Catering & Dessert Jars in Huron, SD</title>
   <meta name="description" content="Petite Desserts offers elegant catering, dessert tables, and our signature dessert jars. Small-batch, made-to-order in Huron, SD and surrounding areas." />
   <link rel="canonical" href="https://jupiterst.github.io/PetiteDesserts-/" />
@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://jupiterst.github.io/PetiteDesserts-/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preload hero for snappy paint -->
+  <!-- Performance -->
   <link rel="preload" as="image" href="images/hero-jars.avif">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
@@ -43,12 +43,13 @@
   </script>
 </head>
 <body>
-  <!-- Header: Nav left, logo top-right -->
+  <!-- Header: consistent nav (Home included), logo top-right -->
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
       <nav class="nav">
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
         <ul class="nav-menu">
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="shop.html">Jars</a></li>
           <li><a href="catering.html">Catering</a></li>
           <li><a href="menu.html">Menu</a></li>
@@ -60,7 +61,7 @@
       <a class="brand" href="index.html" aria-label="Petite Desserts home" style="margin-left:auto;">
         <picture>
           <source srcset="images/logo.svg" type="image/svg+xml">
-          <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160" />
+          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160" />
         </picture>
       </a>
     </div>
@@ -68,7 +69,16 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-media" role="img" aria-label="Assorted dessert jars on a tray"></div>
+    <div class="hero-media" role="img" aria-label="Assorted dessert jars on a tray">
+      <!-- If you prefer explicit <picture>, uncomment below and remove CSS background in styles.css hero-media -->
+      <!--
+      <picture>
+        <source srcset="images/hero-jars.avif" type="image/avif">
+        <source srcset="images/hero-jars.webp" type="image/webp">
+        <img src="images/hero-jars.jpg" alt="Assorted dessert jars on a tray" style="width:100%;height:100%;object-fit:cover;">
+      </picture>
+      -->
+    </div>
     <div class="container hero-content">
       <h1 class="headline">Catering & Dessert Jars<br><span class="accent">made beautifully simple.</span></h1>
       <p class="sub">From elegant events to cozy cravings — we’ve got the sweet part covered across Huron, SD and nearby towns.</p>
@@ -81,7 +91,7 @@
     <div class="hero-vignette"></div>
   </section>
 
-  <!-- Three quick tiles to keep homepage clean -->
+  <!-- Quick tiles (homepage stays clean; deep dives live on their pages) -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -90,7 +100,11 @@
       </div>
       <div class="grid cards-3">
         <article class="card" data-animate>
-          <img src="images/jar-lemon.jpg" alt="Lemon jar">
+          <picture>
+            <source srcset="images/jar-lemon.avif" type="image/avif">
+            <source srcset="images/jar-lemon.webp" type="image/webp">
+            <img src="images/jar-lemon.jpg" alt="Lemon dessert jar with meringue" width="600" height="400" loading="lazy">
+          </picture>
           <div class="card-body">
             <h3>Dessert Jars</h3>
             <p>Portable, pretty, perfectly portioned.</p>
@@ -98,7 +112,11 @@
           </div>
         </article>
         <article class="card" data-animate>
-          <img src="images/catering-spread.jpg" alt="Catering spread">
+          <picture>
+            <source srcset="images/catering-spread.avif" type="image/avif">
+            <source srcset="images/catering-spread.webp" type="image/webp">
+            <img src="images/catering-spread.jpg" alt="Elegant dessert catering spread" width="600" height="400" loading="lazy">
+          </picture>
           <div class="card-body">
             <h3>Catering</h3>
             <p>Tables, tastings, and tailored menus.</p>
@@ -106,7 +124,11 @@
           </div>
         </article>
         <article class="card" data-animate>
-          <img src="images/g2.jpg" alt="Dessert assortment">
+          <picture>
+            <source srcset="images/g2.avif" type="image/avif">
+            <source srcset="images/g2.webp" type="image/webp">
+            <img src="images/g2.jpg" alt="Assorted petite desserts" width="600" height="400" loading="lazy">
+          </picture>
           <div class="card-body">
             <h3>Signature Sweets</h3>
             <p>From alfajorcitos to tiramisu jars.</p>
@@ -126,11 +148,16 @@
         <a href="contact.html" class="btn">Request a Quote</a>
       </div>
       <div class="media" data-animate>
-        <img src="images/g6.jpg" class="soft-shadow" alt="Dessert table">
+        <picture>
+          <source srcset="images/g6.avif" type="image/avif">
+          <source srcset="images/g6.webp" type="image/webp">
+          <img src="images/g6.jpg" class="soft-shadow" alt="Dessert table at an event" width="1100" height="750" loading="lazy">
+        </picture>
       </div>
     </div>
   </section>
 
+  <!-- Footer (consistent across site) -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Petite Desserts — Huron, SD</p>
@@ -143,5 +170,3 @@
   </footer>
 </body>
 </html>
-
-
