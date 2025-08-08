@@ -38,7 +38,7 @@ if (gallery){
   });
 }
 
-// Reviews (could be replaced by Google Reviews feed later)
+// Reviews data (replace with live feed later)
 const reviews = [
   { q:'“The dessert jars vanished in 10 minutes. Gorgeous setup and right on time.”', who:'— Sarah, baby shower' },
   { q:'“Perfect mix of classic and new. They handled our nut-free request easily.”', who:'— Marcus, corporate event' },
@@ -54,28 +54,30 @@ if (rg){
   rg.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 }
 
-// Contact form success UX (works even with Formspree redirect disabled)
+// Enhance forms (works with FormSubmit without redirect)
 const enhanceForm = form => {
-  if(!form) return;
+  if(!form || form.getAttribute('data-enhanced')) return;
+  form.setAttribute('data-enhanced','1');
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const data = new FormData(form);
     try{
-      const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
+      const res = await fetch(form.action, { method:'POST', body:data });
       if (res.ok){
-        alert('Thanks! We’ll email you to confirm details.');
+        alert('Thanks! We’ll reply within 24 hours.');
         form.reset();
       } else {
-        alert('Sorry—something went wrong. Please email orders@petitedesserts.co');
+        alert('Sorry—something went wrong. Please email escribanoian7@gmail.com or call (605) 350-6478.');
       }
     }catch(err){
-      alert('Network error. Try again or email orders@petitedesserts.co');
+      alert('Network error. Try again or email escribanoian7@gmail.com.');
     }
   });
 };
 enhanceForm(document.getElementById('contactForm'));
+enhanceForm(document.getElementById('requestForm'));
 
-// --- Shop filters ---
+// Shop filters
 const chips = document.querySelectorAll('.filters .chip');
 const grid = document.getElementById('productGrid');
 chips.forEach(chip=>{
@@ -83,13 +85,13 @@ chips.forEach(chip=>{
     chips.forEach(c=>c.classList.remove('active'));
     chip.classList.add('active');
     const f = chip.dataset.filter;
-    grid.querySelectorAll('.product').forEach(card=>{
+    grid?.querySelectorAll('.product').forEach(card=>{
       card.style.display = (f==='all' || card.dataset.cat.includes(f)) ? '' : 'none';
     });
   });
 });
 
-// --- Request modal ---
+// Request modal controls
 const reqModal = document.getElementById('requestModal');
 const reqItem = document.getElementById('reqItem');
 document.querySelectorAll('.request-btn').forEach(btn=>{
@@ -100,10 +102,7 @@ document.querySelectorAll('.request-btn').forEach(btn=>{
 });
 reqModal?.querySelector('.close')?.addEventListener('click', ()=> reqModal.close());
 
-// Enhance modal form (Formspree)
-enhanceForm(document.getElementById('requestForm'));
-
-// Anchor to open modal via #request
+// Open modal via #request
 if (location.hash === '#request') {
   reqModal?.showModal();
 }
