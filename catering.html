@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catering — Petite Desserts</title>
-  <meta name="description" content="Dessert tables, mini pastries, tastings, delivery and setup. Tailored catering for your event in Huron, SD and nearby towns." />
+  <meta name="description" content="Dessert tables, mini pastries, tastings, delivery and setup. Tailored catering for events in Huron, SD and surrounding areas." />
+  <link rel="canonical" href="https://jupiterst.github.io/PetiteDesserts-/catering.html" />
+
+  <!-- Icons & assets -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+
+  <!-- Service schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Dessert Catering",
+    "provider":{"@type":"LocalBusiness","name":"Petite Desserts"},
+    "areaServed":"Huron SD and surrounding areas",
+    "serviceType":"Dessert catering, dessert tables, mini pastries"
+  }
+  </script>
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
       <nav class="nav">
@@ -16,18 +35,23 @@
         <ul class="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Jars</a></li>
+          <li><a href="catering.html" aria-current="page">Catering</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html" class="btn small">Contact</a></li>
         </ul>
       </nav>
-      <a class="brand" href="index.html" style="margin-left:auto;">
-        <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160">
+      <a class="brand" href="index.html" aria-label="Petite Desserts home" style="margin-left:auto;">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160">
+        </picture>
       </a>
     </div>
   </header>
 
+  <!-- Main -->
   <main class="section">
     <div class="container two-col">
       <div class="text" data-animate>
@@ -41,15 +65,22 @@
         <a href="contact.html" class="btn">Request a Quote</a>
       </div>
       <div class="media">
-        <img src="images/catering-spread.jpg" alt="Dessert catering table" class="soft-shadow" data-animate>
+        <picture>
+          <source srcset="images/catering-spread.avif" type="image/avif">
+          <source srcset="images/catering-spread.webp" type="image/webp">
+          <img src="images/catering-spread.jpg" alt="Dessert catering table" class="soft-shadow" width="1100" height="750" loading="lazy" data-animate>
+        </picture>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Petite Desserts</p>
+      <p>© <span id="year"></span> Petite Desserts — Huron, SD</p>
       <nav class="footer-nav">
+        <a href="shop.html">Jars</a>
+        <a href="catering.html">Catering</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
