@@ -2,309 +2,259 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Petite Desserts</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia&display=swap">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #f3ece7;
-      display: flex;
-      flex-direction: column;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 60px;
-      width: 100%;
-      pointer-events: none;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12), transparent);
-      z-index: 99;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    body.scrolled::before {
-      opacity: 1;
-    }
-    header, footer {
-      background-color: #6f1d1b;
-      color: #fff;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header a.title-link {
-      text-decoration: none;
-      color: inherit;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 14px;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #bb9457;
-    }
-    .language-toggle {
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 12px;
-      border-radius: 5px;
-      margin-left: 15px;
-      transition: background 0.3s ease;
-    }
-    .language-toggle:hover {
-      background-color: #fff;
-      color: #6f1d1b;
-    }
-    .hero {
-      background-color: #6f1d1b;
-      color: #fcefe1;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      max-height: 160px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .hero img:hover {
-      transform: scale(1.05);
-    }
-    .hero h1 {
-      font-size: 42px;
-      margin: 20px 0 10px;
-    }
-    .hero p {
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-    .shop-btn {
-      padding: 10px 20px;
-      font-size: 14px;
-      background-color: #bb9457;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .shop-btn:hover {
-      background-color: #a77c45;
-    }
-    .product-section {
-      padding: 60px 20px;
-      background-color: #fff;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .product-card {
-      background: #f9f4f0;
-      border: 1px solid #e0dcd8;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    .tag {
-      background-color: #bb9457;
-      color: white;
-      font-size: 12px;
-      padding: 5px 10px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-bottom: 10px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .product-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .product-card h3 {
-      margin: 15px 0 10px;
-      font-size: 18px;
-      color: #6f1d1b;
-    }
-    .product-card p {
-      font-size: 14px;
-      color: #444;
-    }
-    footer {
-      text-align: center;
-      font-size: 14px;
-      padding: 20px;
-    }
-    #backToTop {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #6f1d1b;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      display: none;
-    }
-    #backToTop:hover {
-      background-color: #bb9457;
-    }
-    @media (max-width: 600px) {
-      header, footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 20px;
-      }
-      nav {
-        margin-top: 10px;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .hero h1 {
-        font-size: 28px;
-      }
-      .hero p {
-        font-size: 14px;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Petite Desserts — Catering & Dessert Jars in Huron, SD</title>
+  <meta name="description" content="Petite Desserts offers elegant catering, dessert tables, and our signature dessert jars. Small-batch, made-to-order in Huron, South Dakota." />
+  <link rel="canonical" href="https://your-domain.example/" />
+
+  <!-- Icons -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Social cards -->
+  <meta property="og:title" content="Petite Desserts — Catering & Dessert Jars" />
+  <meta property="og:description" content="Elegant catering & our famous dessert jars. Small-batch, made-to-order in Huron, SD." />
+  <meta property="og:image" content="images/social-card.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preload hero image for snappy paint -->
+  <link rel="preload" as="image" href="images/hero-jars.avif">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Petite Desserts",
+    "image":"https://your-domain.example/images/social-card.jpg",
+    "logo":"https://your-domain.example/images/logo.svg",
+    "description":"Catering & dessert jars. Small-batch, made-to-order.",
+    "url":"https://your-domain.example/",
+    "telephone":"+1-600-000-0000",
+    "areaServed":"Huron SD",
+    "address":{"@type":"PostalAddress","addressLocality":"Huron","addressRegion":"SD","addressCountry":"US"},
+    "sameAs":[]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="title-link">
-      <h2 style="margin: 0;">Petite <span style="font-weight: lighter;">Desserts</span></h2>
-    </a>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="About.html">ABOUT</a>
-      <a href="Contact.html">CONTACT</a>
-      <a href="Feedback.html">FEEDBACK</a>
-      <button class="language-toggle" onclick="toggleLanguage()">Español</button>
-    </nav>
+  <!-- Header -->
+  <header class="site-header" data-scrolled="false">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Petite Desserts home">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160" />
+        </picture>
+      </a>
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+          <li><a href="#jars">Dessert Jars</a></li>
+          <li><a href="#catering">Catering</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact" class="btn small">Request a Quote</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <img src="images/Logo.png" alt="Petite Desserts Logo">
-    <h1 id="hero-title">Peruvian Sweets & Traditions</h1>
-    <p id="hero-sub">Experience the warmth of Peru with every bite. Explore traditional desserts below.</p>
-    <a href="Contact.html" class="shop-btn">Contact Us</a>
+    <div class="hero-media" role="img" aria-label="Assorted dessert jars on a tray"></div>
+    <div class="container hero-content">
+      <h1 class="headline">Catering & Dessert Jars<br><span class="accent">made beautifully simple.</span></h1>
+      <p class="sub">From elegant events to cozy cravings — we’ve got the sweet part covered.</p>
+      <div class="hero-cta">
+        <a href="shop.html" class="btn">Explore Jars</a>
+        <a href="#catering" class="btn ghost">Catering Options</a>
+      </div>
+      <div class="hero-badge" aria-hidden="true">Small-batch • Made-to-order • Huron, SD</div>
+    </div>
+    <div class="hero-vignette"></div>
   </section>
 
-  <section class="product-section">
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/alfajores.png" alt="Alfajores">
-      <h3 class="dual" data-en="Alfajorcitos" data-es="Alfajorcitos">Alfajorcitos</h3>
-      <p class="dual" data-en="Buttery shortbread cookies filled with dulce de leche." data-es="Galletas de mantequilla rellenas con manjar blanco.">Buttery shortbread cookies filled with dulce de leche.</p>
+  <!-- Jars -->
+  <section id="jars" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Dessert Jars</h2>
+        <p>Our bestseller and your new obsession. Portable, pretty, perfectly portioned.</p>
+      </div>
+      <div class="grid cards-3">
+        <article class="card" data-animate>
+          <picture>
+            <source srcset="images/jar-lemon.avif" type="image/avif">
+            <source srcset="images/jar-lemon.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-lemon.jpg" alt="Lemon meringue dessert jar" width="600" height="400">
+          </picture>
+          <div class="card-body">
+            <h3>Pie de Limón</h3>
+            <p>Tangy lemon cream, buttery crumble, soft meringue crown.</p>
+            <a href="shop.html#lemon" class="link">Order</a>
+          </div>
+        </article>
+
+        <article class="card" data-animate>
+          <picture>
+            <source srcset="images/jar-choco.avif" type="image/avif">
+            <source srcset="images/jar-choco.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-choco.jpg" alt="Triple chocolate dessert jar" width="600" height="400">
+          </picture>
+          <div class="card-body">
+            <h3>Triple Chocolate</h3>
+            <p>Silky mousse, fudge cake, chocolate crumbs.</p>
+            <a href="shop.html#choco" class="link">Order</a>
+          </div>
+        </article>
+
+        <article class="card" data-animate>
+          <picture>
+            <source srcset="images/jar-passion.avif" type="image/avif">
+            <source srcset="images/jar-passion.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-passion.jpg" alt="Passion fruit dessert jar" width="600" height="400">
+          </picture>
+          <div class="card-body">
+            <h3>Maracuyá</h3>
+            <p>Bright passion fruit cream with vanilla sponge.</p>
+            <a href="shop.html#passion" class="link">Order</a>
+          </div>
+        </article>
+      </div>
     </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/flan.png" alt="Flan">
-      <h3 class="dual" data-en="Peruvian Flan" data-es="Flan Peruano">Peruvian Flan</h3>
-      <p class="dual" data-en="Silky caramel flan with a Peruvian twist." data-es="Flan de caramelo con un toque peruano.">Silky caramel flan with a Peruvian twist.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/arroz.png" alt="Arroz con Leche">
-      <h3 class="dual" data-en="Arroz con Leche" data-es="Arroz con Leche">Arroz con Leche</h3>
-      <p class="dual" data-en="Creamy rice pudding with cinnamon." data-es="Arroz con leche cremoso con canela.">Creamy rice pudding with cinnamon.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/mazamorra.png" alt="Mazamorra Morada">
-      <h3 class="dual" data-en="Mazamorra Morada" data-es="Mazamorra Morada">Mazamorra Morada</h3>
-      <p class="dual" data-en="Purple corn pudding with fruit and spice." data-es="Postre de maíz morado con frutas y especias.">Purple corn pudding with fruit and spice.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/chocotejas.png" alt="Chocotejas">
-      <h3 class="dual" data-en="Chocotejas" data-es="Chocotejas">Chocotejas</h3>
-      <p class="dual" data-en="Chocolate candies filled with sweet manjar blanco." data-es="Dulces de chocolate rellenos de manjar blanco.">Chocolate candies filled with sweet manjar blanco.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/limonpie.png" alt="Pie de Limón">
-      <h3 class="dual" data-en="Pie de Limón" data-es="Pie de Limón">Pie de Limón</h3>
-      <p class="dual" data-en="Tart lemon pie with creamy topping." data-es="Pie de limón con cobertura cremosa.">Tart lemon pie with creamy topping.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="tag dual" data-en="Savory" data-es="Salado">Savory</div>
-      <img src="images/Causa.png" alt="Causa">
-      <h3 class="dual" data-en="Causa Ball" data-es="Bolita de Causa">Causa Ball</h3>
-      <p class="dual" data-en="Mashed potato ball with egg, olive, and cilantro styled like a cupcake." data-es="Bolita de papa con huevo, aceituna y cilantro al estilo cupcake.">Mashed potato ball with egg, olive, and cilantro styled like a cupcake.</p>
-    </div>
-    <div class="product-card">
-      <div class="tag dual" data-en="Sweet" data-es="Dulce">Sweet</div>
-      <img src="images/Macaron.png" alt="Macarons">
-      <h3 class="dual" data-en="Macarons" data-es="Macarons">Macarons</h3>
-      <p class="dual" 
-       data-en="Delicate almond cookies available in a variety of flavors: strawberry, lemon, passion fruit, piña colada, and more." 
-       data-es="Delicadas galletas de almendra disponibles en una variedad de sabores: fresa, limón, maracuyá, piña colada y más.">
-       Delicate almond cookies available in a variety of flavors: strawberry, lemon, passion fruit, piña colada, and more.
-  </p>
-</div>
-
-
   </section>
 
-  <footer>
-    &copy; 2025 Petite Desserts. All rights reserved.
+  <!-- Catering -->
+  <section id="catering" class="section alt">
+    <div class="container two-col">
+      <div class="text" data-animate>
+        <h2>Elegance for Every Event</h2>
+        <p>We design dessert tables, plated service, and mini-pastry assortments to fit guest count, vibe, and budget. Not only Peruvian classics—we blend familiar favorites with signature flavors.</p>
+        <ul class="checks">
+          <li>Consult + tasting available</li>
+          <li>Dietary options on request (GF, nut-free, egg-free)</li>
+          <li>Delivery + setup</li>
+        </ul>
+        <a href="#contact" class="btn">Request a Catering Quote</a>
+      </div>
+      <div class="media">
+        <picture>
+          <source srcset="images/catering-spread.avif" type="image/avif">
+          <source srcset="images/catering-spread.webp" type="image/webp">
+          <img loading="lazy" src="images/catering-spread.jpg" alt="Dessert catering table" class="soft-shadow" width="1100" height="750" data-animate>
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Signature Sweets</h2>
+        <p>Rotate seasonally — ask about custom flavors.</p>
+      </div>
+      <div class="grid tags">
+        <span class="chip">Alfajorcitos</span>
+        <span class="chip">Mazamorra Morada</span>
+        <span class="chip">Arroz con Leche</span>
+        <span class="chip">Cheesecake Cups</span>
+        <span class="chip">Tiramisu Jars</span>
+        <span class="chip">Seasonal Fruit Tartlets</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery with Lightbox -->
+  <section id="gallery" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <p>A peek at recent bakes & tables. Click to zoom.</p>
+      </div>
+      <div class="masonry lightbox" data-animate>
+        <img src="images/g1_thumb.jpg" data-full="images/g1.jpg" alt="Dessert jar stack" loading="lazy">
+        <img src="images/g2_thumb.jpg" data-full="images/g2.jpg" alt="Assorted mini tartlets" loading="lazy">
+        <img src="images/g3_thumb.jpg" data-full="images/g3.jpg" alt="Catering table detail" loading="lazy">
+        <img src="images/g4_thumb.jpg" data-full="images/g4.jpg" alt="Alfajorcitos" loading="lazy">
+        <img src="images/g5_thumb.jpg" data-full="images/g5.jpg" alt="Chocolate drizzled pastries" loading="lazy">
+        <img src="images/g6_thumb.jpg" data-full="images/g6.jpg" alt="Event dessert table" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Sweet Words</h2>
+        <p>Real feedback from happy clients.</p>
+      </div>
+      <div class="grid cards-3" id="reviewsGrid">
+        <!-- Filled by script from reviews[] -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section alt">
+    <div class="container two-col">
+      <div class="text" data-animate>
+        <h2>Request a Quote</h2>
+        <p>Tell us the occasion and we’ll build a sweet plan.</p>
+
+        <!-- Formspree: replace YOUR_FORMSPREE_ID -->
+        <form class="form" id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <input type="text" name="_gotcha" class="hp" aria-hidden="true" tabindex="-1">
+          <div class="grid two">
+            <label>Full Name<input required name="name" type="text" placeholder="Your name"></label>
+            <label>Email<input required name="email" type="email" placeholder="you@email.com"></label>
+          </div>
+          <div class="grid two">
+            <label>Event Date<input name="date" type="date"></label>
+            <label>Guests<input name="guests" type="number" min="1" placeholder="e.g., 50"></label>
+          </div>
+          <label>Message<textarea name="message" rows="5" placeholder="Theme, flavors, dietary needs…"></textarea></label>
+          <button class="btn" type="submit">Send Request</button>
+          <p class="form-note">We’ll reply within 24 hours.</p>
+        </form>
+      </div>
+      <div class="media" data-animate>
+        <div class="contact-card">
+          <picture>
+            <source srcset="images/logo.svg" type="image/svg+xml">
+            <img src="images/logo.png" alt="" class="contact-logo" width="120" height="120">
+          </picture>
+          <p><strong>Based in Huron, South Dakota</strong></p>
+          <p><a href="mailto:orders@petitedesserts.co">orders@petitedesserts.co</a></p>
+          <p><a href="tel:+16000000000">(600) 000-0000</a></p>
+          <p>Pickup • Delivery • On-site setup</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Petite Desserts — Catering & Baking</p>
+      <nav class="footer-nav">
+        <a href="shop.html">Shop</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+    </div>
   </footer>
-
-  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
-
-  <script>
-    let isSpanish = false;
-    function toggleLanguage() {
-      isSpanish = !isSpanish;
-      document.getElementById("hero-title").textContent = isSpanish
-        ? "Dulces y Tradiciones Peruanas"
-        : "Peruvian Sweets & Traditions";
-      document.getElementById("hero-sub").textContent = isSpanish
-        ? "Disfruta la calidez del Perú en cada bocado. Explora nuestros postres tradicionales."
-        : "Experience the warmth of Peru with every bite. Explore traditional desserts below.";
-      document.querySelectorAll(".dual").forEach(el => {
-        const text = isSpanish ? el.dataset.es : el.dataset.en;
-        if (text) el.textContent = text;
-      });
-      document.querySelector(".language-toggle").textContent = isSpanish ? "English" : "Español";
-    }
-
-    window.onscroll = () => {
-      const y = window.scrollY;
-      document.getElementById("backToTop").style.display = y > 300 ? "block" : "none";
-      document.body.classList.toggle("scrolled", y > 10);
-    };
-  </script>
 </body>
 </html>
+
