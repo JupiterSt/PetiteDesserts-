@@ -1,63 +1,120 @@
-// Sticky header shadow & year
-const header = document.querySelector('.site-header');
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
-const onScroll = () => header?.setAttribute('data-scrolled', window.scrollY > 8);
-onScroll(); window.addEventListener('scroll', onScroll);
+// -----------------------------
+// Utilities
+// -----------------------------
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const trapFocus = (container) => {
+  const focusables = $$('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])', container)
+    .filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+  if (!focusables.length) return () => {};
+  const first = focusables[0], last = focusables[focusables.length - 1];
+  const onKey = (e) => {
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  };
+  container.addEventListener('keydown', onKey);
+  return () => container.removeEventListener('keydown', onKey);
+};
+const noScroll = (on) => document.body.style.overflow = on ? 'hidden' : '';
 
+// -----------------------------
+// Header shadow + year
+// -----------------------------
+const header = $('.site-header');
+const year = $('#year');
+if (year) year.textContent = new Date().getFullYear();
+
+const onScroll = () => header?.setAttribute('data-scrolled', window.scrollY > 8);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// -----------------------------
 // Mobile nav
-const toggle = document.querySelector('.nav-toggle');
-const menu = document.querySelector('.nav-menu');
+// -----------------------------
+const toggle = $('.nav-toggle');
+const menu = $('.nav-menu');
 toggle?.addEventListener('click', () => {
   const open = menu.classList.toggle('open');
   toggle.setAttribute('aria-expanded', String(open));
 });
+menu?.addEventListener('click', (e) => {
+  if (e.target.closest('a')) { menu.classList.remove('open'); toggle?.setAttribute('aria-expanded','false'); }
+});
 
-// Reveal on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-},{ threshold:.18 });
-document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+// Highlight active nav link
+$$('.nav-menu a').forEach(a => {
+  const here = location.pathname.split('/').pop() || 'index.html';
+  const target = a.getAttribute('href');
+  if (target === here) a.setAttribute('aria-current', 'page');
+});
 
-// Lightbox for gallery
-const gallery = document.querySelector('.lightbox');
+// -----------------------------
+// Reveal-on-scroll (respect reduced motion)
+// -----------------------------
+const enableReveal = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (enableReveal) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+  }, { threshold: 0.18 });
+  $$('[data-animate]').forEach(el => observer.observe(el));
+} else {
+  $$('[data-animate]').forEach(el => el.classList.add('visible'));
+}
+
+// -----------------------------
+// Lightbox (gallery)
+// -----------------------------
+const gallery = $('.lightbox');
+let removeTrap = () => {};
 if (gallery){
+  const closeLB = () => { $('.lb-backdrop')?.remove(); noScroll(false); removeTrap(); };
   gallery.addEventListener('click', e=>{
     const img = e.target.closest('img');
     if (!img) return;
     const full = img.getAttribute('data-full') || img.src;
     const backdrop = document.createElement('div');
     backdrop.className = 'lb-backdrop';
-    const big = document.createElement('img');
-    big.className = 'lb-image';
-    big.alt = img.alt || '';
-    big.src = full;
-    backdrop.appendChild(big);
-    backdrop.addEventListener('click', ()=> backdrop.remove());
+    backdrop.innerHTML = `<img class="lb-image" alt="${img.alt || ''}">`;
     document.body.appendChild(backdrop);
+    const big = $('.lb-image', backdrop);
+    big.src = full;
+    noScroll(true);
+    removeTrap = trapFocus(backdrop);
+    big.tabIndex = 0;
+    big.focus();
+
+    const onKey = (ev) => { if (ev.key === 'Escape') closeLB(); };
+    window.addEventListener('keydown', onKey, { once: true });
+    backdrop.addEventListener('click', closeLB);
   });
 }
 
-// Reviews data (replace with live feed later)
+// -----------------------------
+// Reviews (static sample; replace with live feed later)
+// -----------------------------
 const reviews = [
   { q:'“The dessert jars vanished in 10 minutes. Gorgeous setup and right on time.”', who:'— Sarah, baby shower' },
   { q:'“Perfect mix of classic and new. They handled our nut-free request easily.”', who:'— Marcus, corporate event' },
   { q:'“That passion fruit jar… unreal. We’re booking again for the holidays.”', who:'— Alicia, family party' },
 ];
-const rg = document.getElementById('reviewsGrid');
+const rg = $('#reviewsGrid');
 if (rg){
   rg.innerHTML = reviews.map(r => `
     <figure class="review" data-animate>
       <blockquote>${r.q}</blockquote>
       <figcaption>${r.who}</figcaption>
     </figure>`).join('');
-  rg.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  // apply reveal to injected items
+  $$('[data-animate]', rg).forEach(el => el.classList.add('visible'));
 }
 
-// Enhance forms (works with FormSubmit without redirect)
-const enhanceForm = form => {
-  if(!form || form.getAttribute('data-enhanced')) return;
-  form.setAttribute('data-enhanced','1');
+// -----------------------------
+// Forms (FormSubmit-friendly, no redirect)
+// -----------------------------
+const enhanceForm = (form) => {
+  if(!form || form.dataset.enhanced) return;
+  form.dataset.enhanced = '1';
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const data = new FormData(form);
@@ -69,17 +126,19 @@ const enhanceForm = form => {
       } else {
         alert('Sorry—something went wrong. Please email escribanoian7@gmail.com or call (605) 350-6478.');
       }
-    }catch(err){
+    }catch{
       alert('Network error. Try again or email escribanoian7@gmail.com.');
     }
   });
 };
-enhanceForm(document.getElementById('contactForm'));
-enhanceForm(document.getElementById('requestForm'));
+enhanceForm($('#contactForm'));
+enhanceForm($('#requestForm'));
 
+// -----------------------------
 // Shop filters
-const chips = document.querySelectorAll('.filters .chip');
-const grid = document.getElementById('productGrid');
+// -----------------------------
+const chips = $$('.filters .chip');
+const grid = $('#productGrid');
 chips.forEach(chip=>{
   chip.addEventListener('click', ()=>{
     chips.forEach(c=>c.classList.remove('active'));
@@ -91,18 +150,32 @@ chips.forEach(chip=>{
   });
 });
 
-// Request modal controls
-const reqModal = document.getElementById('requestModal');
-const reqItem = document.getElementById('reqItem');
-document.querySelectorAll('.request-btn').forEach(btn=>{
+// -----------------------------
+// Request modal
+// -----------------------------
+const reqModal = $('#requestModal');
+const reqItem = $('#reqItem');
+let removeTrapModal = () => {};
+
+const openModal = () => {
+  reqModal?.showModal();
+  noScroll(true);
+  removeTrapModal = trapFocus(reqModal);
+  // focus first input if present
+  reqModal?.querySelector('input, textarea, button')?.focus();
+};
+const closeModal = () => { reqModal?.close(); noScroll(false); removeTrapModal(); };
+
+$$('.request-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     if (reqItem) reqItem.value = btn.dataset.name || '';
-    reqModal?.showModal();
+    openModal();
   });
 });
-reqModal?.querySelector('.close')?.addEventListener('click', ()=> reqModal.close());
+reqModal?.querySelector('.close')?.addEventListener('click', closeModal);
+window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && reqModal?.open) closeModal(); });
 
-// Open modal via #request
-if (location.hash === '#request') {
-  reqModal?.showModal();
-}
+// Open modal via #request on load or when hash changes
+const checkHash = () => { if (location.hash === '#request') openModal(); };
+checkHash();
+window.addEventListener('hashchange', checkHash);
