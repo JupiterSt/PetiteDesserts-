@@ -4,13 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop — Petite Desserts</title>
+  <meta name="description" content="Place a request for dessert jars, pastries, and catering trays. We confirm availability and finalize details by email." />
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+
+  <!-- Product JSON-LD (examples; add more as needed) -->
+  <script type="application/ld+json">
+  [{
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Pie de Limón Jar",
+    "image":"https://your-domain.example/images/jar-lemon.jpg",
+    "description":"Tangy lemon cream & crumble in a dessert jar.",
+    "offers":{"@type":"Offer","price":"6.00","priceCurrency":"USD","availability":"https://schema.org/InStock"}
+  },{
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Maracuyá Jar",
+    "image":"https://your-domain.example/images/jar-passion.jpg",
+    "description":"Bright passion fruit cream in a dessert jar.",
+    "offers":{"@type":"Offer","price":"7.00","priceCurrency":"USD","availability":"https://schema.org/InStock"}
+  }]
+  </script>
 </head>
 <body>
   <header class="site-header" data-scrolled="false">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo">
+        <picture>
+          <source srcset="images/logo.svg" type="image/svg+xml">
+          <img src="images/logo.png" alt="Petite Desserts logo" class="brand-logo" width="160" height="160">
+        </picture>
       </a>
       <nav class="nav">
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
@@ -42,9 +66,12 @@
 
       <!-- Products -->
       <div class="grid cards-3" id="productGrid">
-        <!-- Example product card -->
         <article id="lemon" class="product card" data-cat="jars seasonal">
-          <img src="images/jar-lemon.jpg" alt="Pie de Limón jar">
+          <picture>
+            <source srcset="images/jar-lemon.avif" type="image/avif">
+            <source srcset="images/jar-lemon.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-lemon.jpg" alt="Pie de Limón jar" width="600" height="400">
+          </picture>
           <div class="card-body">
             <h3>Pie de Limón Jar</h3>
             <p>Tangy lemon cream & crumble.</p>
@@ -54,7 +81,11 @@
         </article>
 
         <article id="choco" class="product card" data-cat="jars">
-          <img src="images/jar-choco.jpg" alt="Triple Chocolate jar">
+          <picture>
+            <source srcset="images/jar-choco.avif" type="image/avif">
+            <source srcset="images/jar-choco.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-choco.jpg" alt="Triple Chocolate jar" width="600" height="400">
+          </picture>
           <div class="card-body">
             <h3>Triple Chocolate Jar</h3>
             <p>Fudge cake & silky mousse.</p>
@@ -64,7 +95,11 @@
         </article>
 
         <article id="passion" class="product card" data-cat="jars traditional">
-          <img src="images/jar-passion.jpg" alt="Passion fruit jar">
+          <picture>
+            <source srcset="images/jar-passion.avif" type="image/avif">
+            <source srcset="images/jar-passion.webp" type="image/webp">
+            <img loading="lazy" src="images/jar-passion.jpg" alt="Passion fruit jar" width="600" height="400">
+          </picture>
           <div class="card-body">
             <h3>Maracuyá Jar</h3>
             <p>Bright passion fruit cream.</p>
@@ -74,7 +109,7 @@
         </article>
 
         <article class="product card" data-cat="pastries traditional">
-          <img src="images/alfajorcitos.jpg" alt="Alfajorcitos">
+          <img loading="lazy" src="images/alfajorcitos.jpg" alt="Alfajorcitos" width="600" height="400">
           <div class="card-body">
             <h3>Alfajorcitos</h3>
             <p>Buttery cookies with manjar blanco.</p>
@@ -84,7 +119,7 @@
         </article>
 
         <article class="product card" data-cat="pastries">
-          <img src="images/tiramisu.jpg" alt="Tiramisu jar">
+          <img loading="lazy" src="images/tiramisu.jpg" alt="Tiramisu jar" width="600" height="400">
           <div class="card-body">
             <h3>Tiramisu Jar</h3>
             <p>Classic espresso & mascarpone.</p>
@@ -94,7 +129,7 @@
         </article>
 
         <article class="product card" data-cat="traditional">
-          <img src="images/mazamorra.png" alt="Mazamorra Morada">
+          <img loading="lazy" src="images/mazamorra.png" alt="Mazamorra Morada" width="600" height="400">
           <div class="card-body">
             <h3>Mazamorra Morada</h3>
             <p>Purple corn pudding with fruit & spice.</p>
@@ -108,10 +143,12 @@
 
   <!-- Request Modal -->
   <dialog id="requestModal" class="modal">
-    <form method="dialog" class="modal-box" id="requestForm">
+    <!-- Replace YOUR_FORMSPREE_ID -->
+    <form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID" class="modal-box" id="requestForm">
       <button class="close" aria-label="Close">×</button>
       <h3>Order Request</h3>
       <p class="muted">We’ll confirm availability and final pricing by email.</p>
+      <input type="text" name="_gotcha" class="hp" aria-hidden="true" tabindex="-1">
       <label>Item<input name="item" id="reqItem" required></label>
       <div class="grid two">
         <label>Name<input name="name" required></label>
@@ -135,7 +172,5 @@
       </nav>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
