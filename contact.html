@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Petite Desserts</title>
+  <meta name="description" content="Request a quote or ask a question." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header" data-scrolled="false">
+    <div class="container header-inner">
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Jars</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </nav>
+      <a class="brand" href="index.html" style="margin-left:auto;">
+        <img src="images/logo.png" alt="Petite Desserts" class="brand-logo" width="160" height="160">
+      </a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container two-col">
+      <div class="text" data-animate>
+        <h1>Contact</h1>
+        <p>Tell us the occasion and we’ll build a sweet plan.</p>
+        <!-- Replace YOUR_FORMSPREE_ID -->
+        <form class="form" id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <input type="text" name="_gotcha" class="hp" aria-hidden="true" tabindex="-1">
+          <div class="grid two">
+            <label>Full Name<input required name="name" type="text" placeholder="Your name"></label>
+            <label>Email<input required name="email" type="email" placeholder="you@email.com"></label>
+          </div>
+          <div class="grid two">
+            <label>Event Date<input name="date" type="date"></label>
+            <label>Guests<input name="guests" type="number" min="1" placeholder="e.g., 50"></label>
+          </div>
+          <label>Message<textarea name="message" rows="5" placeholder="Theme, flavors, dietary needs…"></textarea></label>
+          <button class="btn" type="submit">Send Request</button>
+          <p class="form-note">We’ll reply within 24 hours.</p>
+        </form>
+      </div>
+      <div class="media" data-animate>
+        <div class="contact-card">
+          <img src="images/logo.png" alt="" class="contact-logo" width="120" height="120">
+          <p><strong>Based in Huron, South Dakota</strong></p>
+          <p><a href="mailto:orders@petitedesserts.co">orders@petitedesserts.co</a></p>
+          <p><a href="tel:+16000000000">(600) 000-0000</a></p>
+          <p>Pickup • Delivery • On-site setup</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Petite Desserts</p>
+      <nav class="footer-nav">
+        <a href="shop.html">Jars</a>
+        <a href="catering.html">Catering</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
